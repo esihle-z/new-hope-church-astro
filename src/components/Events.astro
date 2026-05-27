@@ -1,0 +1,214 @@
+---
+// Events.astro
+// ─────────────────────────────────────────────────────────────
+// Events calendar section — monthly view with event markers.
+//
+// Desktop: 7-column CSS grid calendar (4 rows × 7 cols = 28 cells).
+// Mobile:   Vertical list of upcoming events.
+//
+// June 2026 events:
+//   7th  — Vision Sunday 9&11
+//   12th — Youth Friday 6PM
+//   20th — Newcomers Lunch 12:30
+//   28th — Baptism Sunday 11AM
+// ─────────────────────────────────────────────────────────────
+---
+
+<section id="events" class="py-20 md:py-28 px-6 md:px-12 bg-[#efe8d7] animate-fade-up">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Header with month + arrow buttons -->
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="font-serif italic text-4xl md:text-5xl text-[#111111]">
+        June 2026
+      </h2>
+      <div class="flex items-center gap-2">
+        <button
+          type="button"
+          aria-label="Previous month"
+          class="w-10 h-10 flex items-center justify-center rounded-full border border-[#111111]/[0.08] text-[#111111] hover:bg-[#111111]/[0.04] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] btn-press"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          aria-label="Next month"
+          class="w-10 h-10 flex items-center justify-center rounded-full border border-[#111111]/[0.08] text-[#111111] hover:bg-[#111111]/[0.04] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] btn-press"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ─── Desktop calendar grid (hidden on mobile) ─── -->
+    <div class="hidden md:block">
+
+      <!-- Day-of-week headers -->
+      <div class="grid grid-cols-7 gap-1 mb-1">
+        <div class="text-center font-mono text-xs uppercase tracking-wider text-[#111111]/50 py-2">Mon</div>
+        <div class="text-center font-mono text-xs uppercase tracking-wider text-[#111111]/50 py-2">Tue</div>
+        <div class="text-center font-mono text-xs uppercase tracking-wider text-[#111111]/50 py-2">Wed</div>
+        <div class="text-center font-mono text-xs uppercase tracking-wider text-[#111111]/50 py-2">Thu</div>
+        <div class="text-center font-mono text-xs uppercase tracking-wider text-[#111111]/50 py-2">Fri</div>
+        <div class="text-center font-mono text-xs uppercase tracking-wider text-[#111111]/50 py-2">Sat</div>
+        <div class="text-center font-mono text-xs uppercase tracking-wider text-[#111111]/50 py-2">Sun</div>
+      </div>
+
+      <!-- Calendar cells: 4 rows × 7 cols = 28 cells -->
+      <!-- June 2026 starts on Monday the 1st -->
+      <div class="grid grid-cols-7 gap-1">
+
+        <!-- Row 1: June 1–7 -->
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">1</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">2</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">3</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">4</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">5</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">6</span>
+        </div>
+        <div class="border border-[#111111]/[0.08] rounded-xl bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] min-h-[80px] p-2">
+          <span class="text-sm text-[#111111] font-semibold">7</span>
+          <p class="text-xs text-electric-blue font-medium mt-1 leading-tight">Vision Sunday 9&amp;11</p>
+        </div>
+
+        <!-- Row 2: June 8–14 -->
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">8</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">9</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">10</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">11</span>
+        </div>
+        <div class="border border-[#111111]/[0.08] rounded-xl bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] min-h-[80px] p-2">
+          <span class="text-sm text-[#111111] font-semibold">12</span>
+          <p class="text-xs text-electric-blue font-medium mt-1 leading-tight">Youth Friday 6PM</p>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">13</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">14</span>
+        </div>
+
+        <!-- Row 3: June 15–21 -->
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">15</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">16</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">17</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">18</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">19</span>
+        </div>
+        <div class="border border-[#111111]/[0.08] rounded-xl bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] min-h-[80px] p-2">
+          <span class="text-sm text-[#111111] font-semibold">20</span>
+          <p class="text-xs text-electric-blue font-medium mt-1 leading-tight">Newcomers Lunch 12:30</p>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">21</span>
+        </div>
+
+        <!-- Row 4: June 22–28 -->
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">22</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">23</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">24</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">25</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">26</span>
+        </div>
+        <div class="border border-[#111111]/[0.06] rounded-xl bg-transparent min-h-[80px] p-2">
+          <span class="text-sm text-[#111111]/60">27</span>
+        </div>
+        <div class="border border-[#111111]/[0.08] rounded-xl bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] min-h-[80px] p-2">
+          <span class="text-sm text-[#111111] font-semibold">28</span>
+          <p class="text-xs text-electric-blue font-medium mt-1 leading-tight">Baptism Sunday 11AM</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── Mobile vertical list (hidden on md+) ─── -->
+    <div class="md:hidden space-y-3">
+      <h3 class="font-mono text-xs uppercase tracking-wider text-[#111111]/50 mb-4">Upcoming Events</h3>
+
+      <div class="flex items-start gap-4 bg-white border border-[#111111]/[0.08] rounded-2xl p-4 shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
+        <div class="shrink-0 w-14 h-14 flex flex-col items-center justify-center bg-cream rounded-xl border border-[#111111]/[0.06]">
+          <span class="font-mono text-xs text-[#111111]/50 uppercase">Jun</span>
+          <span class="font-serif text-xl font-bold text-[#111111]">7</span>
+        </div>
+        <div>
+          <p class="font-semibold text-[#111111]">Vision Sunday</p>
+          <p class="text-sm text-[#111111]/60">9:00 AM &amp; 11:00 AM</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 bg-white border border-[#111111]/[0.08] rounded-2xl p-4 shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
+        <div class="shrink-0 w-14 h-14 flex flex-col items-center justify-center bg-cream rounded-xl border border-[#111111]/[0.06]">
+          <span class="font-mono text-xs text-[#111111]/50 uppercase">Jun</span>
+          <span class="font-serif text-xl font-bold text-[#111111]">12</span>
+        </div>
+        <div>
+          <p class="font-semibold text-[#111111]">Youth Friday</p>
+          <p class="text-sm text-[#111111]/60">6:00 PM</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 bg-white border border-[#111111]/[0.08] rounded-2xl p-4 shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
+        <div class="shrink-0 w-14 h-14 flex flex-col items-center justify-center bg-cream rounded-xl border border-[#111111]/[0.06]">
+          <span class="font-mono text-xs text-[#111111]/50 uppercase">Jun</span>
+          <span class="font-serif text-xl font-bold text-[#111111]">20</span>
+        </div>
+        <div>
+          <p class="font-semibold text-[#111111]">Newcomers Lunch</p>
+          <p class="text-sm text-[#111111]/60">12:30 PM</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 bg-white border border-[#111111]/[0.08] rounded-2xl p-4 shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
+        <div class="shrink-0 w-14 h-14 flex flex-col items-center justify-center bg-cream rounded-xl border border-[#111111]/[0.06]">
+          <span class="font-mono text-xs text-[#111111]/50 uppercase">Jun</span>
+          <span class="font-serif text-xl font-bold text-[#111111]">28</span>
+        </div>
+        <div>
+          <p class="font-semibold text-[#111111]">Baptism Sunday</p>
+          <p class="text-sm text-[#111111]/60">11:00 AM</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

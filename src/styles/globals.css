@@ -1,0 +1,135 @@
+/*
+ * New Hope Church — Global Styles
+ *
+ * Tailwind CSS v4 uses CSS-based configuration via the @theme directive.
+ * All brand tokens (colors, fonts, etc.) are defined here.
+ *
+ * Design system follows soft-skill, minimalist-ui, and impeccable principles.
+ *
+ * Font strategy (per impeccable brand register):
+ *   - Display: Libre Baskerville (old-style serif, warm, not trendy-editorial)
+ *   - Body: Inter (clean, readable, on-product-register)
+ *   - Removed Lora/DM Serif Display (reflex-reject list)
+ *
+ * Aesthetic lane: NOT editorial-magazine. Instead: warm, grounded, slightly
+ * British/African institutional — authoritative but welcoming.
+ */
+
+/* Import Tailwind v4 */
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  Brand Tokens — @theme directive                                   */
+/* ------------------------------------------------------------------ */
+@theme {
+  /* --- Colors --- */
+  /* Warm monochrome minimalist-ui palette */
+  --color-black: #111111;           /* Off-black — warmer than pure #000 */
+  --color-cream: #F4EFE5;           /* Primary warm background */
+  --color-cream-surface: #EDE5D2;   /* Secondary surface */
+  --color-cream-warm: #FBFBFA;      /* Warm bone/white — cards */
+  --color-electric-blue: #085CFC;   /* Single accent — CTAs only (committed strategy) */
+  --color-off-white: #EAE6DD;       /* Tertiary surface */
+
+  /* --- Typography --- */
+  /* Display: Baskerville (not on impeccable reject list) */
+  /* Body: Inter OK per product register */
+  --font-serif: "Libre Baskerville", "Baskerville", "Georgia", serif;
+  --font-sans: "Inter", "system-ui", "-apple-system", "sans-serif";
+}
+
+/* ------------------------------------------------------------------ */
+/*  Custom Easing Curves — Emil / Impeccable spec                     */
+/* ------------------------------------------------------------------ */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);  /* Impeccase ease-out-quint */
+}
+
+/* ------------------------------------------------------------------ */
+/*  Google Fonts — loaded via HTML <link> in BaseLayout               */
+/* ------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------ */
+/*  Global resets                                                     */
+/* ------------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-black font-sans antialiased;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Scroll Entry Animations — minimalist-ui / Emil / Impeccable       */
+/*  GPU-safe: transform + opacity only.                               */
+/* ------------------------------------------------------------------ */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s var(--ease-out) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s var(--ease-out) both;
+}
+
+/* Staggered children */
+.stagger-children > * {
+  animation: fade-up 0.6s var(--ease-out) both;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 400ms; }
+
+/* ------------------------------------------------------------------ */
+/*  Button Press Feedback — Emil / Impeccable spec                    */
+/* ------------------------------------------------------------------ */
+.btn-press {
+  transition: transform 160ms var(--ease-out);
+}
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Accordion — minimalist-ui spec                                    */
+/* ------------------------------------------------------------------ */
+details > summary {
+  cursor: pointer;
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] > summary ~ * {
+  animation: fade-up 0.3s var(--ease-out) both;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Photo Placeholder                                                 */
+/* ------------------------------------------------------------------ */
+.photo-placeholder {
+  background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px);
+}

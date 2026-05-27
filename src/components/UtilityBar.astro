@@ -1,0 +1,40 @@
+---
+// UtilityBar.astro
+// ─────────────────────────────────────────────────────────────
+// Top utility bar — black background, cream text.
+// Service time info + Watch Live link + Location switcher.
+//
+// Per soft-skill: micro-detail. Small, always-on, zero chrome.
+// Per Emil: no animation on frequent bar — it's seen on every page.
+// ─────────────────────────────────────────────────────────────
+---
+
+<div class="bg-black text-[#e6dec8] py-2 px-4 md:px-6 text-center">
+  <div class="max-w-6xl mx-auto flex items-center justify-between text-[10px] md:text-[11px] font-medium tracking-wide">
+
+    <!-- Left: Service info -->
+    <span class="text-[#e6dec8]/70 hidden sm:inline">
+      Next Sunday &middot; 9 AM &amp; 11 AM &middot; Century City Conference Centre
+    </span>
+    <span class="text-[#e6dec8]/70 sm:hidden">
+      Sun 9 &amp; 11 AM
+    </span>
+
+    <!-- Right: Actions -->
+    <div class="flex items-center gap-4 md:gap-6">
+      <a
+        href="https://youtube.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-white transition-colors duration-200"
+      >
+        Watch Live
+      </a>
+      <span class="text-[#e6dec8]/30">|</span>
+      <span class="text-[#e6dec8]/60">
+        The Next &#9662;
+      </span>
+    </div>
+
+  </div>
+</div>

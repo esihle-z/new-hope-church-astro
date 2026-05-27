@@ -1,0 +1,323 @@
+---
+// visit.astro
+// ─────────────────────────────────────────────────────────────
+// "Plan Your Visit" page for New Hope Church — The Next campus.
+//
+// This is the #1 conversion page. It answers every question a
+// first-timer might have and makes them feel welcomed.
+//
+// Sections (in order):
+//   1. Hero (compact, cream background)
+//   2. Service Times Card
+//   3. What to Expect (3-step grid)
+//   4. Kids Section
+//   5. FAQ (accordion)
+//   6. Visit CTA
+//
+// Uses BranchLayout with locationName="The Next".
+// ─────────────────────────────────────────────────────────────
+import BranchLayout from "../layouts/BranchLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BranchLayout
+  locationName="The Next"
+  description="Plan your visit to New Hope Church — The Next campus in Century City, Cape Town. Service times, what to expect, kids' programmes, and FAQs. Sundays at 9 AM & 11 AM."
+  canonical="/visit"
+>
+  <main>
+    <Nav />
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 1. HERO                                                    -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section
+      id="hero"
+      class="bg-cream min-h-[40vh] flex flex-col items-center justify-center text-center px-6 py-20 md:py-28 animate-fade-up"
+    >
+      <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-electric-blue mb-3">
+        Plan Your Visit
+      </p>
+      <h1 class="font-serif italic text-4xl md:text-5xl text-black leading-tight">
+        We&rsquo;ve saved you a seat.
+      </h1>
+      <p class="text-black/70 mt-4 max-w-lg text-base md:text-lg leading-relaxed">
+        Here&rsquo;s everything you need to know before Sunday.
+      </p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 2. SERVICE TIMES CARD                                       -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="service-times" class="bg-cream py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-white border border-black/[0.08] p-8 md:p-12 rounded-2xl text-center transition-all duration-300">
+          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-black/50 mb-2">
+            Sundays
+          </p>
+          <h2 class="font-serif italic text-3xl md:text-4xl text-black mb-4">
+            9:00 AM &amp; 11:00 AM
+          </h2>
+          <hr class="border-black/[0.06] mb-4" />
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-electric-blue hover:underline text-sm transition-all duration-300"
+          >
+            Century City Conference Centre, Cape Town
+          </a>
+          <p class="text-black/60 text-sm mt-4 leading-relaxed">
+            Each service lasts about 75 minutes &mdash; worship, a practical talk
+            from the Bible, and prayer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 3. WHAT TO EXPECT                                           -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="what-to-expect" class="bg-cream py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-electric-blue mb-2">
+            What to Expect
+          </p>
+          <h2 class="font-serif italic text-3xl md:text-4xl text-black">
+            Simple. Warm. Meaningful.
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <!-- Step 01 -->
+          <div>
+            <span class="font-serif italic text-5xl text-electric-blue/30 block mb-2">
+              01
+            </span>
+            <h3 class="font-serif italic text-xl text-black mb-2">
+              Arrive &amp; Connect
+            </h3>
+            <p class="text-black/70 leading-relaxed">
+              Doors open 30 min before. Grab a coffee, find a seat, no pressure.
+            </p>
+          </div>
+
+          <!-- Step 02 -->
+          <div>
+            <span class="font-serif italic text-5xl text-electric-blue/30 block mb-2">
+              02
+            </span>
+            <h3 class="font-serif italic text-xl text-black mb-2">
+              The Service
+            </h3>
+            <p class="text-black/70 leading-relaxed">
+              Worship, a practical talk from the Bible, and prayer. About 75 minutes.
+            </p>
+          </div>
+
+          <!-- Step 03 -->
+          <div>
+            <span class="font-serif italic text-5xl text-electric-blue/30 block mb-2">
+              03
+            </span>
+            <h3 class="font-serif italic text-xl text-black mb-2">
+              After the Service
+            </h3>
+            <p class="text-black/70 leading-relaxed">
+              Stick around for coffee and conversation. We&rsquo;d love to meet you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 4. KIDS SECTION                                             -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="kids" class="bg-cream-surface py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+        <!-- Photo placeholder -->
+        <div class="flex-1 w-full">
+          <div class="bg-cream border border-black/[0.06] rounded-2xl aspect-[4/3] flex items-center justify-center transition-all duration-300">
+            <span class="text-black/30 font-mono text-[10px] uppercase tracking-[0.18em]">
+              Photo
+            </span>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1">
+          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-electric-blue mb-2">
+            For Families
+          </p>
+          <h2 class="font-serif italic text-3xl md:text-4xl text-black mb-4 leading-snug">
+            Kids are welcome.
+          </h2>
+          <p class="text-black/70 leading-relaxed mb-8">
+            We run age-appropriate programmes for children aged 0&ndash;11 during
+            both services. Check-in at the welcome desk when you arrive &mdash;
+            we&rsquo;ll take care of the rest.
+          </p>
+
+          <!-- Age group cards -->
+          <div class="grid grid-cols-3 gap-4">
+            <div class="bg-white border border-black/[0.06] rounded-xl p-4 text-center transition-all duration-300">
+              <p class="font-serif italic text-lg text-black">Babies</p>
+              <p class="text-black/50 text-sm mt-1">0&ndash;2 yrs</p>
+            </div>
+            <div class="bg-white border border-black/[0.06] rounded-xl p-4 text-center transition-all duration-300">
+              <p class="font-serif italic text-lg text-black">Kids</p>
+              <p class="text-black/50 text-sm mt-1">3&ndash;7 yrs</p>
+            </div>
+            <div class="bg-white border border-black/[0.06] rounded-xl p-4 text-center transition-all duration-300">
+              <p class="font-serif italic text-lg text-black">Tweens</p>
+              <p class="text-black/50 text-sm mt-1">8&ndash;11 yrs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 5. FAQ — Accordion with <details>/<summary>                 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="faq" class="bg-cream py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-electric-blue mb-2">
+            FAQ
+          </p>
+          <h2 class="font-serif italic text-3xl md:text-4xl text-black">
+            Questions? We&rsquo;ve got answers.
+          </h2>
+        </div>
+
+        <div class="space-y-0 border-t border-black/[0.08]">
+          <!-- Q1 -->
+          <details class="border-b border-black/[0.08] group">
+            <summary class="py-5 cursor-pointer flex items-center justify-between text-black font-semibold text-base select-none list-none">
+              What should I wear?
+              <span class="text-electric-blue group-open:rotate-45 transition-transform duration-300 text-xl">+</span>
+            </summary>
+            <p class="text-black/70 leading-relaxed pb-5 pr-8">
+              Whatever you&rsquo;re comfortable in. Jeans, shorts, or your Sunday
+              best &mdash; all are welcome.
+            </p>
+          </details>
+
+          <!-- Q2 -->
+          <details class="border-b border-black/[0.08] group">
+            <summary class="py-5 cursor-pointer flex items-center justify-between text-black font-semibold text-base select-none list-none">
+              Is there parking?
+              <span class="text-electric-blue group-open:rotate-45 transition-transform duration-300 text-xl">+</span>
+            </summary>
+            <p class="text-black/70 leading-relaxed pb-5 pr-8">
+              Yes, we have free on-site parking available.
+            </p>
+          </details>
+
+          <!-- Q3 -->
+          <details class="border-b border-black/[0.08] group">
+            <summary class="py-5 cursor-pointer flex items-center justify-between text-black font-semibold text-base select-none list-none">
+              What about my kids?
+              <span class="text-electric-blue group-open:rotate-45 transition-transform duration-300 text-xl">+</span>
+            </summary>
+            <p class="text-black/70 leading-relaxed pb-5 pr-8">
+              We run programmes for ages 0&ndash;11 during both services. Check in
+              at the welcome desk and we&rsquo;ll get them settled.
+            </p>
+          </details>
+
+          <!-- Q4 -->
+          <details class="border-b border-black/[0.08] group">
+            <summary class="py-5 cursor-pointer flex items-center justify-between text-black font-semibold text-base select-none list-none">
+              I don&rsquo;t know the songs?
+              <span class="text-electric-blue group-open:rotate-45 transition-transform duration-300 text-xl">+</span>
+            </summary>
+            <p class="text-black/70 leading-relaxed pb-5 pr-8">
+              We display lyrics on screen. Just listen if you prefer &mdash; no
+              pressure to sing along.
+            </p>
+          </details>
+
+          <!-- Q5 -->
+          <details class="border-b border-black/[0.08] group">
+            <summary class="py-5 cursor-pointer flex items-center justify-between text-black font-semibold text-base select-none list-none">
+              Do I need to bring anything?
+              <span class="text-electric-blue group-open:rotate-45 transition-transform duration-300 text-xl">+</span>
+            </summary>
+            <p class="text-black/70 leading-relaxed pb-5 pr-8">
+              Nothing except yourself. We&rsquo;ll provide everything you need.
+            </p>
+          </details>
+
+          <!-- Q6 -->
+          <details class="border-b border-black/[0.08] group">
+            <summary class="py-5 cursor-pointer flex items-center justify-between text-black font-semibold text-base select-none list-none">
+              Can I just watch online?
+              <span class="text-electric-blue group-open:rotate-45 transition-transform duration-300 text-xl">+</span>
+            </summary>
+            <p class="text-black/70 leading-relaxed pb-5 pr-8">
+              Yes &mdash; services are streamed on YouTube. But we&rsquo;d love to
+              see you in person whenever you&rsquo;re ready.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 6. VISIT CTA                                                -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="visit-cta" class="bg-black text-center py-24 md:py-36 px-6 animate-fade-up">
+      <div class="max-w-3xl mx-auto">
+        <p class="text-[#a39d8a] font-mono text-[10px] uppercase tracking-[0.18em] mb-4">
+          We&rsquo;re looking forward to meeting you
+        </p>
+
+        <h2 class="font-serif italic text-5xl md:text-7xl text-white leading-tight">
+          We&rsquo;ve saved you a seat.
+        </h2>
+
+        <!-- Event details card -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 mt-8 max-w-md mx-auto transition-all duration-300">
+          <div class="flex flex-col gap-2 text-sm">
+            <div class="flex items-center justify-between text-cream">
+              <span class="text-cream/50">When</span>
+              <span class="font-semibold">Sunday &middot; 9 AM &amp; 11 AM</span>
+            </div>
+            <hr class="border-white/10" />
+            <div class="flex items-center justify-between text-cream">
+              <span class="text-cream/50">Where</span>
+              <span class="font-semibold">Century City Conference Centre</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <a
+            href="https://maps.google.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center border border-white text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-white/10 transition-all duration-300 btn-press"
+          >
+            Get Directions
+          </a>
+          <a
+            href="https://youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center text-cream/60 hover:text-cream px-6 py-3 text-sm font-medium transition-all duration-300 btn-press"
+          >
+            Watch Live Instead
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</BranchLayout>

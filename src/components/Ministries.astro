@@ -1,0 +1,146 @@
+---
+// Ministries.astro
+// ─────────────────────────────────────────────────────────────
+// Ministries section — tabbed filter + card grid.
+//
+// Desktop: 3×2 grid of ministry cards.
+// Mobile:   2×3 grid of ministry cards.
+//
+// Six ministries: Kids, Youth, Young Adults, Men, Women, Small Groups.
+// ─────────────────────────────────────────────────────────────
+---
+
+<section id="ministries" class="py-20 md:py-28 px-6 md:px-12 bg-cream animate-fade-up">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Header -->
+    <div class="mb-10">
+      <span class="font-mono text-[10px] uppercase tracking-[0.18em] font-medium text-[#111111]/60">
+        Six places to belong
+      </span>
+      <h2 class="font-serif italic text-4xl md:text-5xl text-[#111111] mt-3">
+        Ministries.
+      </h2>
+    </div>
+
+    <!-- Tabs row -->
+    <div class="flex gap-2 overflow-x-auto py-4 mb-8">
+      <button class="shrink-0 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.1em] bg-[#111111] text-white font-semibold">
+        All
+      </button>
+      <button class="shrink-0 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.1em] bg-white border border-[#111111]/[0.08] text-[#111111] font-medium hover:bg-gray-100 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]">
+        Kids
+      </button>
+      <button class="shrink-0 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.1em] bg-white border border-[#111111]/[0.08] text-[#111111] font-medium hover:bg-gray-100 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]">
+        Youth
+      </button>
+      <button class="shrink-0 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.1em] bg-white border border-[#111111]/[0.08] text-[#111111] font-medium hover:bg-gray-100 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]">
+        Young Adults
+      </button>
+      <button class="shrink-0 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.1em] bg-white border border-[#111111]/[0.08] text-[#111111] font-medium hover:bg-gray-100 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]">
+        Men
+      </button>
+      <button class="shrink-0 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.1em] bg-white border border-[#111111]/[0.08] text-[#111111] font-medium hover:bg-gray-100 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]">
+        Women
+      </button>
+      <button class="shrink-0 rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.1em] bg-white border border-[#111111]/[0.08] text-[#111111] font-medium hover:bg-gray-100 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]">
+        Small Groups
+      </button>
+    </div>
+
+    <!-- Cards grid: 2 cols on mobile, 3 cols on md+ -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+
+      <!-- Kids -->
+      <div class="rounded-2xl overflow-hidden border border-[#111111]/[0.06] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
+        <div
+          class="h-32 md:h-40 flex items-center justify-center text-sm text-[#111111]/40"
+          style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
+        >
+          Kids Photo
+        </div>
+        <div class="p-4">
+          <h3 class="font-serif italic text-xl text-[#111111]">Kids</h3>
+          <p class="font-mono text-xs text-[#111111]/60 mt-1">Sunday &middot; 9AM &amp; 11AM</p>
+          <p class="text-sm text-[#111111]/70 mt-2">Fun, safe, age-appropriate environments for children birth through 5th grade.</p>
+        </div>
+      </div>
+
+      <!-- Youth -->
+      <div class="rounded-2xl overflow-hidden border border-[#111111]/[0.06] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
+        <div
+          class="h-32 md:h-40 flex items-center justify-center text-sm text-[#111111]/40"
+          style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
+        >
+          Youth Photo
+        </div>
+        <div class="p-4">
+          <h3 class="font-serif italic text-xl text-[#111111]">Youth</h3>
+          <p class="font-mono text-xs text-[#111111]/60 mt-1">Wednesday &middot; 6:30PM</p>
+          <p class="text-sm text-[#111111]/70 mt-2">Middle and high school students building friendships and growing in faith together.</p>
+        </div>
+      </div>
+
+      <!-- Young Adults -->
+      <div class="rounded-2xl overflow-hidden border border-[#111111]/[0.06] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
+        <div
+          class="h-32 md:h-40 flex items-center justify-center text-sm text-[#111111]/40"
+          style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
+        >
+          Young Adults Photo
+        </div>
+        <div class="p-4">
+          <h3 class="font-serif italic text-xl text-[#111111]">Young Adults</h3>
+          <p class="font-mono text-xs text-[#111111]/60 mt-1">Thursday &middot; 7PM</p>
+          <p class="text-sm text-[#111111]/70 mt-2">A community for 20s and 30s navigating life, faith, and everything in between.</p>
+        </div>
+      </div>
+
+      <!-- Men -->
+      <div class="rounded-2xl overflow-hidden border border-[#111111]/[0.06] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
+        <div
+          class="h-32 md:h-40 flex items-center justify-center text-sm text-[#111111]/40"
+          style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
+        >
+          Men Photo
+        </div>
+        <div class="p-4">
+          <h3 class="font-serif italic text-xl text-[#111111]">Men</h3>
+          <p class="font-mono text-xs text-[#111111]/60 mt-1">Saturday &middot; 7AM</p>
+          <p class="text-sm text-[#111111]/70 mt-2">Men's Bible studies, retreats, and service opportunities to grow as godly men.</p>
+        </div>
+      </div>
+
+      <!-- Women -->
+      <div class="rounded-2xl overflow-hidden border border-[#111111]/[0.06] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
+        <div
+          class="h-32 md:h-40 flex items-center justify-center text-sm text-[#111111]/40"
+          style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
+        >
+          Women Photo
+        </div>
+        <div class="p-4">
+          <h3 class="font-serif italic text-xl text-[#111111]">Women</h3>
+          <p class="font-mono text-xs text-[#111111]/60 mt-1">Tuesday &middot; 9:30AM</p>
+          <p class="text-sm text-[#111111]/70 mt-2">Bible studies, mentorship, and gatherings designed to encourage and equip women.</p>
+        </div>
+      </div>
+
+      <!-- Small Groups -->
+      <div class="rounded-2xl overflow-hidden border border-[#111111]/[0.06] bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)]">
+        <div
+          class="h-32 md:h-40 flex items-center justify-center text-sm text-[#111111]/40"
+          style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
+        >
+          Small Groups Photo
+        </div>
+        <div class="p-4">
+          <h3 class="font-serif italic text-xl text-[#111111]">Small Groups</h3>
+          <p class="font-mono text-xs text-[#111111]/60 mt-1">Various Times</p>
+          <p class="text-sm text-[#111111]/70 mt-2">Weekly gatherings in homes across the city for friendship, prayer, and studying God's Word.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

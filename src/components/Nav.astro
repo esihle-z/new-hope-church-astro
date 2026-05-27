@@ -1,0 +1,152 @@
+---
+// Nav.astro
+// ─────────────────────────────────────────────────────────────
+// Primary site navigation — floating glass pill design.
+//
+// Per soft-skill spec:
+//   - Detached floating pill (not edge-to-edge)
+//   - Heavy glass effect with backdrop-blur
+//   - Hamburger morphs to X on toggle
+//   - Staggered mask reveal for mobile menu
+//   - Button-in-button CTA pattern
+//
+// Desktop: [logo] ····· [nav links] ····· [CTA button]
+// Mobile:  [logo] ····· [small CTA] ····· [☰ hamburger]
+// ─────────────────────────────────────────────────────────────
+---
+
+<nav class="fixed top-4 md:top-6 left-0 right-0 z-50 px-4 md:px-6" role="navigation" aria-label="Primary">
+  <!-- Floating glass pill — soft-skill spec -->
+  <div class="max-w-5xl mx-auto bg-white/90 backdrop-blur-xl rounded-full border border-black/[0.08] shadow-[0_2px_16px_rgba(0,0,0,0.04)] px-4 md:px-6">
+    <div class="flex items-center justify-between h-14 md:h-16">
+
+      <!-- LEFT: Logo (serif italic, links to /) -->
+      <a
+        href="/"
+        class="font-serif italic text-lg md:text-xl font-semibold text-black shrink-0 hover:opacity-70 transition-opacity duration-200"
+      >
+        New Hope
+      </a>
+
+      <!-- CENTER: Nav links (hidden on mobile, flex from md up) -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-sans">
+        <li>
+          <a
+            href="/locations/the-next"
+            class="text-black/70 hover:text-black transition-colors duration-200 font-medium"
+          >
+            This Location
+          </a>
+        </li>
+        <li>
+          <a href="/sermons" class="text-black/70 hover:text-black transition-colors duration-200">
+            Sermons
+          </a>
+        </li>
+        <li>
+          <a href="/visit" class="text-black/70 hover:text-black transition-colors duration-200">
+            Visit
+          </a>
+        </li>
+        <li>
+          <a href="/give" class="text-black/70 hover:text-black transition-colors duration-200">
+            Give
+          </a>
+        </li>
+        <li>
+          <a href="/im-new" class="text-black/70 hover:text-black transition-colors duration-200">
+            I'm New
+          </a>
+        </li>
+      </ul>
+
+      <!-- RIGHT: CTA + hamburger -->
+      <div class="flex items-center gap-3">
+        <!-- Desktop: full-size CTA with button-in-button icon -->
+        <a
+          href="/visit"
+          class="hidden md:inline-flex items-center gap-2 bg-black text-white pl-5 pr-2 py-2 rounded-full text-sm font-semibold btn-press hover:bg-black/80 transition-colors duration-200"
+        >
+          Plan Your Visit
+          <!-- Nested circular icon — button-in-button pattern -->
+          <span class="w-7 h-7 rounded-full bg-white/[0.12] flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-[1px] transition-transform duration-200">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </span>
+        </a>
+
+        <!-- Mobile: compact CTA -->
+        <a
+          href="/visit"
+          class="md:hidden inline-flex items-center bg-black text-white px-3 py-1.5 rounded-full text-xs font-semibold btn-press hover:bg-black/80 transition-colors duration-200"
+        >
+          Visit
+        </a>
+
+        <!-- Hamburger icon (mobile only) — morphs to X -->
+        <button
+          type="button"
+          class="md:hidden flex items-center justify-center w-10 h-10 text-black relative"
+          aria-label="Open menu"
+          onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+        >
+          <span class="flex flex-col gap-1.5 transition-transform duration-300" id="hamburger-icon">
+            <span class="block w-5 h-[1.5px] bg-black rounded-full transition-all duration-300 origin-center"></span>
+            <span class="block w-5 h-[1.5px] bg-black rounded-full transition-all duration-300 origin-center"></span>
+            <span class="block w-5 h-[1.5px] bg-black rounded-full transition-all duration-300 origin-center"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu overlay — staggered mask reveal per soft-skill -->
+  <div
+    id="mobile-menu"
+    class="hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
+    onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+  >
+    <div
+      class="absolute top-20 left-4 right-4 bg-white rounded-2xl p-8 shadow-2xl"
+      onclick="event.stopPropagation()"
+    >
+      <ul class="space-y-6 stagger-children">
+        <li>
+          <a href="/locations/the-next" class="block text-lg font-serif italic text-black hover:text-electric-blue transition-colors duration-200">
+            This Location
+          </a>
+        </li>
+        <li>
+          <a href="/sermons" class="block text-lg font-serif italic text-black hover:text-electric-blue transition-colors duration-200">
+            Sermons
+          </a>
+        </li>
+        <li>
+          <a href="/visit" class="block text-lg font-serif italic text-black hover:text-electric-blue transition-colors duration-200">
+            Visit
+          </a>
+        </li>
+        <li>
+          <a href="/give" class="block text-lg font-serif italic text-black hover:text-electric-blue transition-colors duration-200">
+            Give
+          </a>
+        </li>
+        <li>
+          <a href="/im-new" class="block text-lg font-serif italic text-black hover:text-electric-blue transition-colors duration-200">
+            I'm New
+          </a>
+        </li>
+      </ul>
+      <a
+        href="/visit"
+        class="mt-8 w-full inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-full text-sm font-semibold btn-press hover:bg-black/80 transition-colors duration-200"
+      >
+        Plan Your Visit
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer to account for fixed nav -->
+<div class="h-16 md:h-20"></div>

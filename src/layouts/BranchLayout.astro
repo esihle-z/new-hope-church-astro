@@ -1,0 +1,28 @@
+---
+// BranchLayout.astro
+// ─────────────────────────────────────────────────────────────
+// Layout for branch / location pages (e.g. /locations/the-next/).
+// Extends BaseLocation with location-specific SEO context.
+// ─────────────────────────────────────────────────────────────
+import BaseLayout from "./BaseLayout.astro";
+
+const {
+  locationName = "New Hope Church",
+  description,
+  canonical,
+  ...rest
+} = Astro.props;
+
+const fullTitle = `${locationName} — New Hope Church`;
+const fullDescription = description || `${locationName} campus of New Hope Church in Cape Town. Join us Sundays at 9 AM or 11 AM.`;
+const fullCanonical = canonical || "/";
+---
+
+<BaseLayout
+  {...rest}
+  title={fullTitle}
+  description={fullDescription}
+  canonical={fullCanonical}
+>
+  <slot />
+</BaseLayout>

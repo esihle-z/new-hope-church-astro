@@ -1,0 +1,51 @@
+---
+// VisitCTA.astro
+// ─────────────────────────────────────────────────────────────
+// Final call-to-action section — dark background, centered text.
+//
+// Contains:
+//   - Eyebrow label ("One last thing")
+//   - Large serif italic headline ("We've saved a seat.")
+//   - Subtext in cream
+//   - Two CTA buttons: "Plan Your Visit" + "Get Directions"
+// ─────────────────────────────────────────────────────────────
+---
+
+<section id="visit" class="bg-[#111111] text-center py-24 md:py-32 px-6 animate-fade-up">
+  <div class="max-w-3xl mx-auto">
+
+    <!-- Eyebrow — warm gold, not mono. Breaks the editorial-magazine pattern. -->
+    <p class="text-amber-200/80 text-xs font-medium tracking-wide mb-5">
+      One last thing
+    </p>
+
+    <!-- Headline — Baskerville, bold + italic combo for emphasis -->
+    <h2 class="font-serif text-5xl md:text-7xl text-white leading-tight font-bold">
+      We&rsquo;ve saved a seat.
+    </h2>
+
+    <!-- Subtext -->
+    <p class="text-cream max-w-lg mx-auto mt-6 text-base md:text-lg leading-relaxed">
+      Whether it's your first time or you've been around for years, there's a place for you at New Hope. Come as you are.
+    </p>
+
+    <!-- CTA buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+      <a
+        href="/visit"
+        class="inline-flex items-center bg-electric-blue text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] btn-press"
+      >
+        Plan Your Visit
+      </a>
+      <a
+        href="https://maps.google.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center bg-white/[0.04] border border-white/[0.08] text-white px-6 py-3 rounded-2xl text-sm font-semibold hover:bg-white/[0.08] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] btn-press"
+      >
+        Get Directions
+      </a>
+    </div>
+
+  </div>
+</section>

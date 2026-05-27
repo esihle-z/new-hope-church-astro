@@ -1,0 +1,81 @@
+---
+// PastorWelcome.astro
+// Pastor photo, welcome quote, and "What we believe" section.
+// Two-column layout on desktop.
+---
+
+<section id="pastor-welcome" class="bg-[#F4EFE5] py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12">
+    <!-- Left: Photo + quote -->
+    <div class="flex-1">
+      <!-- Photo placeholder -->
+      <div
+        class="w-full aspect-[4/3] rounded-2xl mb-6 flex items-center justify-center shadow-[0_2px_16px_rgba(0,0,0,0.04)]"
+        style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px);"
+      >
+        <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#111111]/40">
+          Pastor Photo
+        </span>
+      </div>
+
+      <blockquote class="font-serif italic text-xl md:text-2xl text-[#111111] leading-relaxed mb-4">
+        &ldquo;We believe church should be the safest place to ask hard questions,
+        doubt out loud, and discover what God is really like.&rdquo;
+      </blockquote>
+      <p class="text-[#111111]/70 leading-relaxed mb-2">
+        Our hope is that every person who walks through our doors feels seen,
+        valued, and loved &mdash; not judged.
+      </p>
+      <p class="text-[#111111]/70 leading-relaxed">
+        We&rsquo;re a community that takes the Bible seriously and grace even more
+        seriously.
+      </p>
+      <p class="font-semibold text-[#111111] mt-4">
+        &mdash; Pastor David Mokoena
+      </p>
+    </div>
+
+    <!-- Right: What we believe -->
+    <div class="flex-1">
+      <p class="font-mono text-[10px] uppercase tracking-[0.18em] font-medium text-[#085CFC] mb-3">
+        What we believe
+      </p>
+      <h2 class="font-serif italic text-3xl md:text-4xl text-[#111111] mb-8 leading-snug">
+        Three things hold us together.
+      </h2>
+
+      <!-- Belief blocks -->
+      <div class="space-y-0">
+        <!-- The Gospel -->
+        <div class="border-t border-black/[0.08] py-5">
+          <h3 class="font-serif italic text-xl text-[#111111] mb-2">The Gospel</h3>
+          <p class="text-[#111111]/60 text-sm leading-relaxed">
+            The good news is that God has made a way for every person to be in
+            relationship with Him through Jesus Christ. It&rsquo;s not about what
+            we do &mdash; it&rsquo;s about what He&rsquo;s already done.
+          </p>
+        </div>
+
+        <!-- The Bible -->
+        <div class="border-t border-black/[0.08] py-5">
+          <h3 class="font-serif italic text-xl text-[#111111] mb-2">The Bible</h3>
+          <p class="text-[#111111]/60 text-sm leading-relaxed">
+            We believe the Bible is God&rsquo;s Word and the ultimate authority for
+            how we live. It&rsquo;s not just a book of rules &mdash; it&rsquo;s a
+            story of redemption that speaks into every area of our lives.
+          </p>
+        </div>
+
+        <!-- The Spirit -->
+        <div class="border-t border-b border-black/[0.08] py-5">
+          <h3 class="font-serif italic text-xl text-[#111111] mb-2">The Spirit</h3>
+          <p class="text-[#111111]/60 text-sm leading-relaxed">
+            God&rsquo;s Spirit lives in every believer, guiding, empowering, and
+            transforming us from the inside out. We rely on Him for wisdom,
+            strength, and direction every day.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

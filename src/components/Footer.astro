@@ -1,0 +1,84 @@
+---
+// Footer.astro
+// ─────────────────────────────────────────────────────────────
+// Site footer — dark background, 4-column grid layout.
+//
+// Per minimalist-ui spec:
+//   - Warm monochrome palette
+//   - Oversized section labels
+//   - No heavy borders — ultra-light dividers
+//   - Generous whitespace
+// ─────────────────────────────────────────────────────────────
+---
+
+<footer class="bg-black text-[#e6dec8] pt-20 md:pt-28 pb-10 px-6 md:px-12" role="contentinfo">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- 4-column grid: 2 cols on mobile, 4 cols on md+ -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
+
+      <!-- Column 1: Brand — oversized serif label -->
+      <div class="col-span-2 md:col-span-1 mb-4 md:mb-0">
+        <a href="/" class="font-serif italic text-2xl text-white hover:opacity-70 transition-opacity duration-200">
+          New Hope
+        </a>
+        <p class="text-sm text-[#e6dec8]/60 mt-3 leading-relaxed max-w-[240px]">
+          A church for people at every stage of the journey.
+        </p>
+      </div>
+
+      <!-- Column 2: About -->
+      <div>
+        <p class="text-white text-xs uppercase tracking-[0.18em] mb-5 font-medium">
+          About
+        </p>
+        <ul class="space-y-3 text-sm">
+          <li><a href="/about" class="text-[#e6dec8]/60 hover:text-white transition-colors duration-200">Our Story</a></li>
+          <li><a href="/about#beliefs" class="text-[#e6dec8]/60 hover:text-white transition-colors duration-200">What We Believe</a></li>
+          <li><a href="/about#leaders" class="text-[#e6dec8]/60 hover:text-white transition-colors duration-200">Leadership</a></li>
+          <li><a href="/contact" class="text-[#e6dec8]/60 hover:text-white transition-colors duration-200">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Connect -->
+      <div>
+        <p class="text-white text-xs uppercase tracking-[0.18em] mb-5 font-medium">
+          Connect
+        </p>
+        <ul class="space-y-3 text-sm">
+          <li><a href="/visit" class="text-[#e6dec8]/60 hover:text-white transition-colors duration-200">Plan a Visit</a></li>
+          <li><a href="/sermons" class="text-[#e6dec8]/60 hover:text-white transition-colors duration-200">Watch Sermons</a></li>
+          <li><a href="/give" class="text-[#e6dec8]/60 hover:text-white transition-colors duration-200">Give</a></li>
+          <li><a href="https://youtube.com/@newhopechurch" target="_blank" rel="noopener noreferrer" class="text-[#e6dec8]/60 hover:text-white transition-colors duration-200">YouTube</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Locations -->
+      <div>
+        <p class="text-white text-xs uppercase tracking-[0.18em] mb-5 font-medium">
+          Locations
+        </p>
+        <ul class="space-y-3 text-sm">
+          <li><a href="/locations/the-next" class="text-[#e6dec8]/60 hover:text-white transition-colors duration-200">The Next — Century City</a></li>
+          <li><span class="text-[#e6dec8]/40">Sandton</span></li>
+          <li><span class="text-[#e6dec8]/40">Joburg South</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Divider — ultra-light per minimalist-ui -->
+    <hr class="border-white/[0.06] my-12" />
+
+    <!-- Copyright -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-[#e6dec8]/40 tracking-wide">
+        &copy; {new Date().getFullYear()} New Hope Church. All rights reserved.
+      </p>
+      <div class="flex items-center gap-6 text-xs text-[#e6dec8]/40">
+        <a href="https://instagram.com/newhopechurch" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-200">Instagram</a>
+        <a href="https://youtube.com/@newhopechurch" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors duration-200">YouTube</a>
+      </div>
+    </div>
+
+  </div>
+</footer>

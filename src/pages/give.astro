@@ -1,0 +1,248 @@
+---
+// give.astro
+// ─────────────────────────────────────────────────────────────
+// New Hope Church — Giving / Donations page (/give)
+//
+// Sections:
+//   1. Hero
+//   2. Give Options (3 cards)
+//   3. Where It Goes (transparency bars)
+//   4. Recurring Giving
+//   5. Tax Info
+//   6. Contact
+//
+// Tone: trustworthy, transparent, warm — never guilt-trippy.
+// ─────────────────────────────────────────────────────────────
+import BranchLayout from "../layouts/BranchLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BranchLayout
+  locationName="The Next"
+  description="Give to New Hope Church — The Next campus. Online giving, EFT, SnapScan. See exactly where your money goes."
+  canonical="/give"
+>
+  <Nav />
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SECTION 1 — HERO
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28 px-6 animate-fade-up">
+      <div class="max-w-3xl mx-auto text-center">
+        <!-- Eyebrow -->
+        <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-black/60 mb-4">
+          Give
+        </p>
+
+        <!-- Headline -->
+        <h1 class="font-serif italic text-4xl md:text-5xl text-black leading-tight mb-6">
+          Your generosity changes lives.
+        </h1>
+
+        <!-- Subtext -->
+        <p class="font-sans text-lg text-black/70 max-w-lg mx-auto leading-relaxed">
+          Every offering goes toward making a real difference in Cape Town — through our local church community and beyond.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SECTION 2 — GIVE OPTIONS
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="bg-white py-20 md:py-28 px-6 animate-fade-up">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+          <!-- Card 1: Online Giving -->
+          <div class="border border-black/[0.08] rounded-2xl p-8 flex flex-col items-start bg-cream/40 transition-all duration-300">
+            <h2 class="font-serif italic text-2xl text-black mb-3">
+              Online Giving
+            </h2>
+            <p class="font-sans text-black/70 leading-relaxed mb-6 flex-1">
+              Give securely online via PayFast.
+            </p>
+            <a
+              href="#"
+              class="inline-flex items-center bg-electric-blue text-white px-6 py-3 rounded-full text-sm font-semibold font-sans hover:bg-blue-700 transition-all duration-300 btn-press"
+            >
+              Give Now
+            </a>
+          </div>
+
+          <!-- Card 2: EFT / Bank Transfer -->
+          <div class="border border-black/[0.08] rounded-2xl p-8 flex flex-col items-start bg-cream/40 transition-all duration-300">
+            <h2 class="font-serif italic text-2xl text-black mb-3">
+              EFT / Bank Transfer
+            </h2>
+            <p class="font-sans text-black/70 leading-relaxed mb-6 flex-1">
+              Direct deposit to our church account.
+            </p>
+            <!-- Bank details box -->
+            <div class="w-full bg-white border border-black/[0.06] rounded-xl p-5 font-mono text-sm text-black/80 space-y-1.5 transition-all duration-300">
+              <p><span class="font-semibold">Bank:</span> First National Bank</p>
+              <p><span class="font-semibold">Account Name:</span> New Hope Church</p>
+              <p><span class="font-semibold">Account Number:</span> 6200 0000 000</p>
+              <p><span class="font-semibold">Branch Code:</span> 250 655</p>
+              <p><span class="font-semibold">Reference:</span> Your name + "giving"</p>
+            </div>
+          </div>
+
+          <!-- Card 3: SnapScan / Zapper -->
+          <div class="border border-black/[0.08] rounded-2xl p-8 flex flex-col items-start bg-cream/40 transition-all duration-300">
+            <h2 class="font-serif italic text-2xl text-black mb-3">
+              SnapScan / Zapper
+            </h2>
+            <p class="font-sans text-black/70 leading-relaxed mb-6 flex-1">
+              Scan and pay from your phone.
+            </p>
+            <!-- QR Code placeholder -->
+            <div class="w-full flex justify-center">
+              <div class="w-40 h-40 border-2 border-black/[0.08] bg-white rounded-2xl flex items-center justify-center transition-all duration-300">
+                <span class="font-sans text-sm text-black/50">QR Code</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SECTION 3 — WHERE IT GOES (Transparency)
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="bg-[#1a1a1a] py-20 md:py-28 px-6 animate-fade-up">
+      <div class="max-w-3xl mx-auto">
+        <!-- Headline -->
+        <h2 class="font-serif italic text-3xl md:text-4xl text-white text-center mb-12">
+          Where your money goes.
+        </h2>
+
+        <!-- Percentage bars -->
+        <div class="space-y-6">
+
+          <!-- Bar 1: 40% — Local Church & Staff -->
+          <div>
+            <div class="flex justify-between font-sans text-sm text-white mb-2">
+              <span>Local Church &amp; Staff</span>
+              <span>40%</span>
+            </div>
+            <div class="w-full bg-white/10 rounded-full h-3">
+              <div
+                class="bg-white h-3 rounded-full"
+                style="width: 40%"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Bar 2: 25% — Community Outreach -->
+          <div>
+            <div class="flex justify-between font-sans text-sm text-white mb-2">
+              <span>Community Outreach</span>
+              <span>25%</span>
+            </div>
+            <div class="w-full bg-white/10 rounded-full h-3">
+              <div
+                class="bg-white h-3 rounded-full"
+                style="width: 25%"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Bar 3: 20% — Building & Facilities -->
+          <div>
+            <div class="flex justify-between font-sans text-sm text-white mb-2">
+              <span>Building &amp; Facilities</span>
+              <span>20%</span>
+            </div>
+            <div class="w-full bg-white/10 rounded-full h-3">
+              <div
+                class="bg-white h-3 rounded-full"
+                style="width: 20%"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Bar 4: 15% — Missions & Partnerships -->
+          <div>
+            <div class="flex justify-between font-sans text-sm text-white mb-2">
+              <span>Missions &amp; Partnerships</span>
+              <span>15%</span>
+            </div>
+            <div class="w-full bg-white/10 rounded-full h-3">
+              <div
+                class="bg-white h-3 rounded-full"
+                style="width: 15%"
+              ></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Note -->
+        <p class="font-sans text-sm text-white/60 text-center mt-10 leading-relaxed">
+          We publish annual financial reports. Transparency matters to us.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SECTION 4 — RECURRING GIVING
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28 px-6 animate-fade-up">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-serif italic text-3xl text-black mb-5">
+          Set up recurring giving.
+        </h2>
+        <p class="font-sans text-lg text-black/70 leading-relaxed mb-8">
+          The most helpful way to give is regularly. It helps us plan and be generous when needs arise.
+        </p>
+        <a
+          href="#"
+          class="inline-flex items-center border-2 border-black text-black px-6 py-3 rounded-full text-sm font-semibold font-sans transition-all duration-300 btn-press"
+        >
+          Set Up Monthly Giving
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SECTION 5 — TAX INFO
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="bg-white py-20 md:py-28 px-6 animate-fade-up">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="font-sans text-sm text-black/60 leading-relaxed">
+          New Hope Church is a registered PBO (Public Benefit Organisation). Tax deduction certificates available on request.&nbsp;
+          <a
+            href="mailto:finance@newhopechurch.co.za"
+            class="text-electric-blue underline underline-offset-2 hover:text-blue-700 transition-all duration-300"
+          >
+            finance@newhopechurch.co.za
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SECTION 6 — CONTACT
+         ═══════════════════════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28 px-6 animate-fade-up">
+      <div class="max-w-xl mx-auto text-center">
+        <p class="font-sans text-lg text-black mb-3">
+          Questions about giving?
+        </p>
+        <a
+          href="mailto:finance@newhopechurch.co.za"
+          class="font-sans text-electric-blue text-lg font-medium underline underline-offset-2 hover:text-blue-700 transition-all duration-300"
+        >
+          finance@newhopechurch.co.za
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BranchLayout>
