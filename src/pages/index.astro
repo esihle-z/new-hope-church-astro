@@ -1,0 +1,44 @@
+---
+// index.astro
+// ─────────────────────────────────────────────────────────────
+// Homepage for "The Next" campus of New Hope Church.
+//
+// Uses BranchLayout with locationName="The Next".
+// Renders all 11 sections in order:
+//   UtilityBar → Nav → Hero → ServiceTimes → PastorWelcome →
+//   LifeAtTheNext → CampusPastor → Ministries → Events →
+//   VisitCTA → Footer
+// ─────────────────────────────────────────────────────────────
+import BranchLayout from "../layouts/BranchLayout.astro";
+import UtilityBar from "../components/UtilityBar.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import ServiceTimes from "../components/ServiceTimes.astro";
+import PastorWelcome from "../components/PastorWelcome.astro";
+import LifeAtTheNext from "../components/LifeAtTheNext.astro";
+import CampusPastor from "../components/CampusPastor.astro";
+import Ministries from "../components/Ministries.astro";
+import Events from "../components/Events.astro";
+import VisitCTA from "../components/VisitCTA.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BranchLayout
+  locationName="The Next"
+  description="New Hope Church — The Next campus in Century City, Cape Town. A church for everyone. Join us Sundays at 9 AM or 11 AM. Watch live on YouTube."
+  canonical="/"
+>
+  <main>
+    <UtilityBar />
+    <Nav />
+    <Hero />
+    <ServiceTimes />
+    <PastorWelcome />
+    <LifeAtTheNext />
+    <CampusPastor />
+    <Ministries />
+    <Events />
+    <VisitCTA />
+    <Footer />
+  </main>
+</BranchLayout>

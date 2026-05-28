@@ -1,0 +1,117 @@
+---
+// BaseLayout.astro
+// ─────────────────────────────────────────────────────────────
+// Root layout for the entire site. Every page that uses this
+// layout gets the HTML skeleton, fonts, global styles, and
+// SEO meta tags injected into <head>.
+//
+// SEO includes:
+//   - Title, description, canonical URL
+//   - Open Graph (og:title, og:description, og:image, og:type)
+//   - Twitter Card (summary_large_image)
+//   - JSON-LD schema (Church / LocalBusiness)
+//   - Plausible Analytics (privacy-friendly, no cookies)
+// ─────────────────────────────────────────────────────────────
+const {
+  title = "New Hope Church",
+  description = "New Hope Church — A multi-location church community in Cape Town. Join us Sundays at 9 AM or 11 AM.",
+  image = "/og-image.jpg",
+  type = "website",
+  canonical,
+} = Astro.props;
+
+const siteUrl = "https://newhopechurch.co.za";
+const fullUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
+const fullTitle = title.includes("New Hope") ? title : `${title} — New Hope Church`;
+const ogImage = `${siteUrl}${image}`;
+const schemaImage = `${siteUrl}${image}`;
+const schemaLogo = `${siteUrl}/logo.svg`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- ---- Core Meta ---- -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{fullTitle}</title>
+    <link rel="canonical" href={fullUrl} />
+
+    <!-- ---- Open Graph ---- -->
+    <meta property="og:site_name" content="New Hope Church" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={fullUrl} />
+    <meta property="og:type" content={type} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_ZA" />
+
+    <!-- ---- Twitter Card ---- -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- ---- Favicon ---- -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
+    <!-- ---- Google Fonts ---- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ---- Global Styles ---- -->
+    <link rel="stylesheet" href="/src/styles/globals.css" />
+
+    <!-- ---- JSON-LD Schema: Church + LocalBusiness ---- -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Church",
+      "name": "New Hope Church",
+      "alternateName": "New Hope Church — The Next",
+      "description": "A multi-location church community in Cape Town. Join us Sundays at 9 AM or 11 AM.",
+      "url": "https://newhopechurch.co.za",
+      "logo": "https://newhopechurch.co.za/logo.svg",
+      "image": "https://newhopechurch.co.za/og-image.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "4 Energy Lane, Century City",
+        "addressLocality": "Cape Town",
+        "addressRegion": "Western Cape",
+        "postalCode": "7441",
+        "addressCountry": "ZA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -33.9044,
+        "longitude": 18.5167
+      },
+      "telephone": "+27-00-000-0000",
+      "openingHours": "Su 09:00-12:30",
+      "sameAs": [
+        "https://instagram.com/newhopechurch",
+        "https://youtube.com/@newhopechurch"
+      ]
+    }
+    </script>
+
+    <!-- ---- Plausible Analytics ---- -->
+    <!-- Privacy-friendly, no cookie banner needed, GDPR compliant -->
+    <script defer data-domain="newhopechurch.co.za" src="https://plausible.io/js/script.js"></script>
+
+    <!-- Extra head content from child pages -->
+    <Fragment set:html={Astro.props.headExtra || ""} />
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>

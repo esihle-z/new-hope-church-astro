@@ -1,0 +1,443 @@
+---
+// about.astro
+// ─────────────────────────────────────────────────────────────
+// About page for New Hope Church.
+//
+// Tells the story of who we are, what we believe, our history,
+// leadership team, and locations.
+//
+// Sections (in order):
+//   1. Hero (warm gradient, ~50vh)
+//   2. Our Story (two-column, text + photo)
+//   3. What We Believe (dark background, 3 beliefs)
+//   4. Our Leaders (leader cards grid)
+//   5. Our Locations (location cards)
+//   6. Contact Section (dark background, centered)
+//
+// Uses BranchLayout with locationName="The Next".
+// ─────────────────────────────────────────────────────────────
+import BranchLayout from "../layouts/BranchLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BranchLayout
+  locationName="The Next"
+  description="About New Hope Church — our story, what we believe, our leadership team, and locations across Cape Town."
+  canonical="/about"
+>
+  <main>
+    <Nav />
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 1. HERO                                                    -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section
+      id="hero"
+      class="relative min-h-[50vh] flex flex-col items-center justify-center text-center px-6 py-20 md:py-28 animate-fade-up"
+      style="background: repeating-linear-gradient(135deg, #ded3be 0 8px, #e9e2cf 8px 16px)"
+    >
+      <!-- Warm gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40 pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-3xl">
+        <h1
+          class="font-serif italic text-4xl md:text-6xl text-white leading-tight"
+          style="text-shadow: 0 2px 20px rgba(0,0,0,0.35)"
+        >
+          We're a family in progress.
+        </h1>
+        <p
+          class="text-white/90 mt-4 text-lg md:text-xl font-sans"
+          style="text-shadow: 0 1px 10px rgba(0,0,0,0.4)"
+        >
+          A church for people who know they need something more.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 2. OUR STORY                                               -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="our-story" class="bg-cream py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
+          <!-- Left: Text content -->
+          <div class="flex-1">
+            <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-electric-blue mb-2">
+              Our Story
+            </p>
+            <h2 class="font-serif italic text-3xl md:text-4xl text-black mb-8 leading-snug">
+              How New Hope started.
+            </h2>
+
+            <div class="space-y-5 text-black/75 leading-relaxed">
+              <p>
+                New Hope Church was born out of a simple conviction: that church should be the
+                most welcoming place on earth. What began as a small gathering of friends in
+                Cape Town — people who were hungry for something real but didn't quite fit the
+                mould — has grown into a thriving community of families, dreamers, and seekers
+                across the city.
+              </p>
+              <p>
+                We started small. There were no microphones, no stage, no programmes — just
+                people sharing a meal, reading the Bible together, and figuring things out as
+                we went. Word spread not through slick advertising, but through the kind of
+                genuine community that people couldn't help but talk about. Neighbours invited
+                neighbours. Friends brought friends. The family grew.
+              </p>
+              <p>
+                Today, New Hope has multiple locations across Cape Town and beyond, each with
+                its own campus pastor and personality. While every campus has a distinctive
+                flavour, they all share the same heartbeat: an unwavering commitment to Jesus,
+                His word, and His people. We believe that the local church is the hope of
+                the world.
+              </p>
+              <p>
+                The Next, our Century City location, launched as the newest expression of that
+                vision — reaching a growing community in the heart of the city's business
+                district. It's a church for people who might not darken the door of a
+                traditional church, but who are curious about what following Jesus actually
+                looks like in the real world.
+              </p>
+              <p>
+                We're still a family in progress. Still learning, still growing, still
+                becoming the people God is calling us to be. And there's always room for one
+                more.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Worship team -->
+          <div class="flex-1 w-full">
+            <img
+              src="/photos/DSC05418.jpg"
+              alt="Praise and worship team leading the congregation at New Hope Church"
+              class="rounded-2xl aspect-[3/4] w-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 3. WHAT WE BELIEVE                                         -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="beliefs" class="bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-14">
+          <h2 class="font-serif italic text-3xl md:text-4xl text-white leading-snug">
+            Three things hold us together.
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+          <!-- Belief 1: The Gospel -->
+          <div>
+            <h3 class="font-serif italic text-2xl text-electric-blue mb-3">
+              The Gospel
+            </h3>
+            <p class="text-[#e6dec8]/80 leading-relaxed">
+              Jesus is good news. Not good advice, not a rulebook — good news. The Gospel is
+              the message that God has made a way for us to be restored to Himself through
+              the life, death, and resurrection of Jesus. It's the centre of everything we
+              do, and it changes everything.
+            </p>
+          </div>
+
+          <!-- Belief 2: The Bible -->
+          <div>
+            <h3 class="font-serif italic text-2xl text-electric-blue mb-3">
+              The Bible
+            </h3>
+            <p class="text-[#e6dec8]/80 leading-relaxed">
+              God's word still speaks. We believe the Bible is authoritative, relevant, and
+              transformative. Not a dusty relic, but a living text that challenges, comforts,
+              and guides us week after week. We take it seriously — and we let it speak for
+              itself.
+            </p>
+          </div>
+
+          <!-- Belief 3: The Spirit -->
+          <div>
+            <h3 class="font-serif italic text-2xl text-electric-blue mb-3">
+              The Spirit
+            </h3>
+            <p class="text-[#e6dec8]/80 leading-relaxed">
+              God is present. Not distant, not disinterested — here. Through the Holy Spirit,
+              God lives in and among His people. We rely on His wisdom, power, and comfort as
+              we navigate life together, and we believe He's still at work in our world today.
+            </p>
+          </div>
+        </div>
+
+        <!-- Closing line -->
+        <p class="text-center text-[#e6dec8]/60 mt-14 text-lg font-serif italic">
+          Beyond that, we give each other a lot of grace.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 4. OUR LEADERS                                             -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="leaders" class="bg-cream py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-electric-blue mb-2">
+            Our Team
+          </p>
+          <h2 class="font-serif italic text-3xl md:text-4xl text-black">
+            Our Leadership
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <!-- Leader 1: Apostle Jose Pereira -->
+          <div>
+            <img
+              src="/photos/DSC05567.jpg"
+              alt="Apostle Jose Pereira on stage at New Hope Church"
+              class="aspect-square rounded-2xl w-full object-cover mb-4"
+            />
+            <h3 class="font-serif italic text-xl text-black">
+              Apostle Jose Pereira
+            </h3>
+            <p class="font-mono text-xs uppercase tracking-widest text-electric-blue mt-1 mb-3">
+              Founder &amp; Lead Pastor
+            </p>
+              Jose founded New Hope Church with a heart to reach people who felt church had
+              nothing to offer them. He carries a deep pastoral burden and a passion for
+              raising up leaders. His favourite thing is watching ordinary people step into
+              their calling.
+            </p>
+          </div>
+
+          <!-- Leader 2: Pastor David Mokoena -->
+          <div>
+            <img
+              src="/photos/DSC04891.jpg"
+              alt="Pastor Robin van Rensburg preaching at New Hope Church"
+              class="aspect-square rounded-2xl w-full object-cover mb-4"
+            />
+            <h3 class="font-serif italic text-xl text-black">
+              Pastor David Mokoena
+            </h3>
+            <p class="font-mono text-xs uppercase tracking-widest text-electric-blue mt-1 mb-3">
+              Campus Pastor, The Next
+            </p>
+            <p class="text-black/70 text-sm leading-relaxed">
+              David leads our The Next campus in Century City with warmth, creativity, and
+              an unwavering commitment to seeing people encounter Jesus. He's known for his
+          ability to make everyone feel like they belong from the very first visit.
+            </p>
+          </div>
+
+          <!-- Leader 3: Worship Pastor (placeholder) -->
+          <div>
+            <div
+              class="aspect-square rounded-2xl flex items-center justify-center mb-4"
+              style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
+            >
+              <span class="text-black/30 font-mono text-xs uppercase tracking-widest">
+                Photo
+              </span>
+            </div>
+            <h3 class="font-serif italic text-xl text-black">
+              TBD
+            </h3>
+            <p class="font-mono text-xs uppercase tracking-widest text-electric-blue mt-1 mb-3">
+              Worship Pastor
+            </p>
+            <p class="text-black/70 text-sm leading-relaxed">
+              Our Worship Pastor leads our team in creating an atmosphere of authentic
+              praise — music that helps people encounter God in a real and personal way.
+            </p>
+          </div>
+
+          <!-- Leader 4: Admin Pastor (placeholder) -->
+          <div>
+            <div
+              class="aspect-square rounded-2xl flex items-center justify-center mb-4"
+              style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
+            >
+              <span class="text-black/30 font-mono text-xs uppercase tracking-widest">
+                Photo
+              </span>
+            </div>
+            <h3 class="font-serif italic text-xl text-black">
+              TBD
+            </h3>
+            <p class="font-mono text-xs uppercase tracking-widest text-electric-blue mt-1 mb-3">
+              Admin Pastor
+            </p>
+            <p class="text-black/70 text-sm leading-relaxed">
+              Our Admin Pastor keeps the engine of New Hope running smoothly — making sure
+              every Sunday feels like the first time for every visitor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 5. OUR LOCATIONS                                           -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="locations" class="bg-cream-surface py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-electric-blue mb-2">
+            Find Us
+          </p>
+          <h2 class="font-serif italic text-3xl md:text-4xl text-black">
+            Our Locations
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Location 1: The Next — highlighted -->
+          <div class="bg-cream border-2 border-electric-blue rounded-xl p-6 md:p-8 relative">
+            <span class="absolute top-4 right-4 bg-electric-blue text-white font-mono text-[10px] uppercase tracking-widest px-2 py-1 rounded">
+              Active
+            </span>
+            <h3 class="font-serif italic text-2xl text-black mb-2">
+              The Next
+            </h3>
+            <p class="text-black/60 text-sm mb-4">
+              Century City, Cape Town
+            </p>
+            <hr class="border-black/10 mb-4" />
+            <p class="text-black/70 text-sm mb-1">
+              <span class="font-semibold">Service Times</span>
+            </p>
+            <p class="text-black/60 text-sm mb-5">
+              Sundays · 9 AM &amp; 11 AM
+            </p>
+            <a
+              href="/locations/the-next"
+              class="inline-flex items-center bg-electric-blue text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all duration-300 btn-press"
+            >
+              Get Directions
+            </a>
+          </div>
+
+          <!-- Location 2: Sandton -->
+          <div class="bg-cream border border-black/[0.08] rounded-xl p-6 md:p-8">
+            <h3 class="font-serif italic text-2xl text-black mb-2">
+              Sandton
+            </h3>
+            <p class="text-black/60 text-sm mb-4">
+              Sandton, Johannesburg
+            </p>
+            <hr class="border-black/10 mb-4" />
+            <p class="text-black/70 text-sm mb-1">
+              <span class="font-semibold">Service Times</span>
+            </p>
+            <p class="text-black/60 text-sm mb-5">
+              Sundays · 9 AM &amp; 11 AM
+            </p>
+            <a
+              href="/locations/sandton"
+              class="inline-flex items-center border border-black text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-black/5 transition-all duration-300 btn-press"
+            >
+              Learn More
+            </a>
+          </div>
+
+          <!-- Location 3: Joburg South -->
+          <div class="bg-cream border border-black/[0.08] rounded-xl p-6 md:p-8">
+            <h3 class="font-serif italic text-2xl text-black mb-2">
+              Joburg South
+            </h3>
+            <p class="text-black/60 text-sm mb-4">
+              Johannesburg South, Johannesburg
+            </p>
+            <hr class="border-black/10 mb-4" />
+            <p class="text-black/70 text-sm mb-1">
+              <span class="font-semibold">Service Times</span>
+            </p>
+            <p class="text-black/60 text-sm mb-5">
+              Sundays · 9 AM &amp; 11 AM
+            </p>
+            <a
+              href="/locations/joburg-south"
+              class="inline-flex items-center border border-black text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-black/5 transition-all duration-300 btn-press"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 6. CONTACT SECTION                                         -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section id="contact" class="bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-serif italic text-3xl md:text-5xl text-white leading-tight">
+          Want to know more?
+        </h2>
+        <p class="text-[#e6dec8]/70 mt-4 mb-10 leading-relaxed">
+          We'd love to hear from you. Reach out, follow along, or just show up on Sunday.
+        </p>
+
+        <!-- Contact links -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+          <!-- Email -->
+          <a
+            href="mailto:hello@newhope.church"
+            class="inline-flex items-center gap-2 text-electric-blue hover:underline font-medium"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            hello@newhope.church
+          </a>
+
+          <!-- Divider (hidden on mobile) -->
+          <span class="hidden sm:block text-white/20">|</span>
+
+          <!-- Instagram -->
+          <a
+            href="https://instagram.com/newhopechurch"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-[#e6dec8]/70 hover:text-white transition-colors"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            </svg>
+            Instagram
+          </a>
+
+          <!-- Divider (hidden on mobile) -->
+          <span class="hidden sm:block text-white/20">|</span>
+
+          <!-- YouTube -->
+          <a
+            href="https://youtube.com/@newhopechurch"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-[#e6dec8]/70 hover:text-white transition-colors"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+            YouTube
+          </a>
+        </div>
+
+        <!-- CTA -->
+        <a
+          href="/visit"
+          class="inline-flex items-center bg-electric-blue text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all duration-300 btn-press"
+        >
+          Visit Us Sunday
+        </a>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</BranchLayout>

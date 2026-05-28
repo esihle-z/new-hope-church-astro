@@ -1,0 +1,89 @@
+---
+// Hero.astro
+// ─────────────────────────────────────────────────────────────
+// Full-bleed hero section — warm gradient placeholder, overlay text.
+//
+// Per impeccable brand register:
+//   - "Committed" color strategy: blue carries 30-60% of brand surface
+//   - NOT editorial-magazine lane: no italic-serif + mono-label combination
+//   - Use Baskerville (not Lora) for display
+//   - One decisive image (placeholder for now)
+//
+// Per soft-skill: macro-whitespace, staggered reveals, magnetic buttons
+// Per Emil: button press feedback, custom easing, GPU-safe animations
+// ─────────────────────────────────────────────────────────────
+---
+
+<section
+  id="hero"
+  class="relative w-full min-h-[100dvh] flex items-end pb-20 md:pb-28 px-6 md:px-16 animate-fade-up"
+  style="background: linear-gradient(160deg, #c8963e 0%, #e8c468 25%, #d4a843 55%, #b8862e 100%);"
+>
+  <!-- Dark overlay for text readability -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none"></div>
+
+  <!-- Content overlay (bottom-left) -->
+  <div class="relative z-10 max-w-3xl stagger-children">
+    <!-- Location pill — not mono, more human -->
+    <span
+      class="inline-block bg-white/95 text-black text-xs font-medium px-4 py-1.5 rounded-full mb-5 animate-fade-up tracking-wide"
+    >
+      The Next &middot; Century City, Cape Town
+    </span>
+
+    <!-- Eyebrow — warm cream, not mono uppercase -->
+    <p
+      class="text-cream/90 text-sm font-medium mb-4 animate-fade-up"
+      style="text-shadow: 0 1px 8px rgba(0,0,0,0.3);"
+    >
+      Sundays &middot; 9 AM &amp; 11 AM
+    </p>
+
+    <!-- Headline — Baskerville, not italic. Bold and direct. -->
+    <h1
+      class="font-serif text-5xl md:text-6xl lg:text-[4.5rem] text-white leading-[1.05] mb-5 animate-fade-up font-bold"
+      style="text-shadow: 0 2px 20px rgba(0,0,0,0.3);"
+    >
+      You belong here,
+      <br />
+      before you believe.
+    </h1>
+
+    <!-- Subtext -->
+    <p
+      class="text-cream/90 max-w-lg text-base md:text-lg mb-8 leading-relaxed animate-fade-up"
+      style="text-shadow: 0 1px 10px rgba(0,0,0,0.2);"
+    >
+      A new church on the west side of Cape Town. Come as you are — coffee's on us.
+    </p>
+
+    <!-- CTAs — committed color strategy: blue carries the brand -->
+    <div class="flex flex-wrap gap-4 animate-fade-up">
+      <!-- Primary CTA: electric blue (committed strategy) -->
+      <a
+        href="/visit"
+        class="group inline-flex items-center gap-2 bg-electric-blue text-white pl-6 pr-2.5 py-3.5 rounded-full text-sm font-semibold btn-press hover:bg-blue-700 transition-all duration-300"
+        style="transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);"
+      >
+        Plan Your Visit
+        <!-- Nested icon — magnetic hover +2px translation -->
+        <span class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center group-hover:translate-x-0.5 group-hover:-translate-y-[1px] group-hover:scale-105 transition-transform duration-300" style="transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </span>
+      </a>
+
+      <!-- Secondary CTA -->
+      <a
+        href="https://youtube.com/@newhopechurch"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center border-2 border-white/80 text-white font-semibold px-6 py-3 rounded-full text-sm btn-press hover:bg-white/10 transition-all duration-300"
+        style="transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);"
+      >
+        Watch Live
+      </a>
+    </div>
+  </div>
+</section>

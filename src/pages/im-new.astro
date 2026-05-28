@@ -1,0 +1,333 @@
+---
+// im-new.astro
+// ─────────────────────────────────────────────────────────────
+// "I'm New" page for New Hope Church — The Next campus.
+//
+// This is the most emotionally important page on the site.
+// It's where someone who's never been to church — or who's
+// been hurt by church — decides "maybe this is for me."
+//
+// Tone: warm, honest, zero pressure. Like a friend talking,
+// not a brochure.
+//
+// Sections (in order):
+//   1. Hero (cream, type + whitespace, no photo)
+//   2. You Belong Here (dark background, centered)
+//   3. What Happens When You Visit (timeline)
+//   4. Common Questions (Q&A list)
+//   5. Meet the Pastors (two cards)
+//   6. CTA (dark, single button)
+//
+// Uses BranchLayout with locationName="The Next".
+// ─────────────────────────────────────────────────────────────
+import BranchLayout from "../layouts/BranchLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BranchLayout
+  locationName="The Next"
+  description="New to church? New to faith? You're welcome at New Hope Church. Find out what to expect, meet the pastors, and take your next step — no pressure."
+  canonical="/im-new"
+>
+  <main>
+    <Nav />
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 1. HERO                                                    -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section
+      id="hero"
+      class="bg-cream min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-24 md:py-32 animate-fade-up"
+    >
+      <h1 class="font-serif italic text-4xl md:text-6xl text-black leading-tight max-w-2xl">
+        You&rsquo;re not alone in this.
+      </h1>
+      <p class="text-black/70 text-lg max-w-xl mt-6 leading-relaxed">
+        Whatever brought you here &mdash; curiosity, hope, doubt, or just a friend
+        who wouldn&rsquo;t stop inviting you &mdash; you&rsquo;re welcome.
+      </p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 2. YOU BELONG HERE                                         -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section
+      id="belong"
+      class="bg-[#1a1a1a] py-24 md:py-36 px-6 md:px-16 animate-fade-up"
+    >
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-serif italic text-3xl md:text-5xl text-white leading-tight mb-6">
+          Church isn&rsquo;t for perfect people.
+        </h2>
+        <p class="text-[#e6dec8] text-lg md:text-xl leading-relaxed max-w-xl mx-auto">
+          It&rsquo;s for people who know they need something more. If that&rsquo;s you, pull up a chair.
+        </p>
+      </div>
+
+      <!-- Three numbered statements -->
+      <div class="max-w-4xl mx-auto mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+        <!-- 01 -->
+        <div class="text-center">
+          <span class="font-serif italic text-5xl md:text-6xl text-electric-blue/40 block mb-4">
+            01
+          </span>
+          <p class="text-white text-lg md:text-xl font-serif italic leading-relaxed">
+            You don&rsquo;t need to have it all figured out.
+          </p>
+        </div>
+
+        <!-- 02 -->
+        <div class="text-center">
+          <span class="font-serif italic text-5xl md:text-6xl text-electric-blue/40 block mb-4">
+            02
+          </span>
+          <p class="text-white text-lg md:text-xl font-serif italic leading-relaxed">
+            You won&rsquo;t be put on the spot.
+          </p>
+        </div>
+
+        <!-- 03 -->
+        <div class="text-center">
+          <span class="font-serif italic text-5xl md:text-6xl text-electric-blue/40 block mb-4">
+            03
+          </span>
+          <p class="text-white text-lg md:text-xl font-serif italic leading-relaxed">
+            You can take it at your own pace.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 3. WHAT HAPPENS WHEN YOU VISIT                              -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section
+      id="what-to-expect"
+      class="bg-cream py-20 md:py-28 px-6 md:px-16 animate-fade-up"
+    >
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14 md:mb-20">
+          <h2 class="font-serif italic text-3xl md:text-4xl text-black">
+            What to expect
+          </h2>
+        </div>
+
+        <!-- Timeline: vertical on mobile, horizontal on desktop -->
+        <div class="relative">
+          <!-- Horizontal connecting line (desktop only) -->
+          <div class="hidden md:block absolute top-8 left-0 right-0 h-[2px] bg-black/[0.06] -translate-y-1/2"></div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+            <!-- Step 1: Arrive -->
+            <div class="relative flex flex-col items-center text-center">
+              <!-- Dot (desktop) -->
+              <div class="hidden md:flex w-4 h-4 rounded-full bg-electric-blue border-4 border-cream mb-6 shrink-0"></div>
+              <span class="font-serif italic text-4xl text-electric-blue/30 block mb-3">
+                01
+              </span>
+              <h3 class="font-serif italic text-xl text-black mb-2">
+                Arrive
+              </h3>
+              <p class="text-black/70 leading-relaxed">
+                Doors open 30 min before. Coffee in the foyer.
+              </p>
+            </div>
+
+            <!-- Step 2: Settle in -->
+            <div class="relative flex flex-col items-center text-center">
+              <div class="hidden md:flex w-4 h-4 rounded-full bg-electric-blue border-4 border-cream mb-6 shrink-0"></div>
+              <span class="font-serif italic text-4xl text-electric-blue/30 block mb-3">
+                02
+              </span>
+              <h3 class="font-serif italic text-xl text-black mb-2">
+                Settle in
+              </h3>
+              <p class="text-black/70 leading-relaxed">
+                Find a seat. No assigned seating. Sit wherever you&rsquo;re comfortable.
+              </p>
+            </div>
+
+            <!-- Step 3: The service -->
+            <div class="relative flex flex-col items-center text-center">
+              <div class="hidden md:flex w-4 h-4 rounded-full bg-electric-blue border-4 border-cream mb-6 shrink-0"></div>
+              <span class="font-serif italic text-4xl text-electric-blue/30 block mb-3">
+                03
+              </span>
+              <h3 class="font-serif italic text-xl text-black mb-2">
+                The service
+              </h3>
+              <p class="text-black/70 leading-relaxed">
+                Songs, a talk from the Bible, prayer. ~75 min.
+              </p>
+            </div>
+
+            <!-- Step 4: Afterwards -->
+            <div class="relative flex flex-col items-center text-center">
+              <div class="hidden md:flex w-4 h-4 rounded-full bg-electric-blue border-4 border-cream mb-6 shrink-0"></div>
+              <span class="font-serif italic text-4xl text-electric-blue/30 block mb-3">
+                04
+              </span>
+              <h3 class="font-serif italic text-xl text-black mb-2">
+                Afterwards
+              </h3>
+              <p class="text-black/70 leading-relaxed">
+                Coffee and conversation. Or slip out the back &mdash; no pressure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 4. COMMON QUESTIONS                                        -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section
+      id="questions"
+      class="bg-cream-surface py-20 md:py-28 px-6 md:px-16 animate-fade-up"
+    >
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-14">
+          <h2 class="font-serif italic text-3xl md:text-4xl text-black">
+            Questions you might have
+          </h2>
+        </div>
+
+        <div class="space-y-0">
+          <!-- Q1 -->
+          <div class="border-t border-black/[0.08] py-6">
+            <p class="font-bold text-black text-base md:text-lg mb-2">
+              What if I don&rsquo;t know anyone?
+            </p>
+            <p class="text-black/70 leading-relaxed">
+              Look for the welcome team in blue shirts. They&rsquo;ll introduce you around.
+            </p>
+          </div>
+
+          <!-- Q2 -->
+          <div class="border-t border-black/[0.08] py-6">
+            <p class="font-bold text-black text-base md:text-lg mb-2">
+              Will I be asked to give money?
+            </p>
+            <p class="text-black/70 leading-relaxed">
+              No. If you&rsquo;re a guest, please don&rsquo;t feel any pressure to give.
+            </p>
+          </div>
+
+          <!-- Q3 -->
+          <div class="border-t border-black/[0.08] py-6">
+            <p class="font-bold text-black text-base md:text-lg mb-2">
+              What if I cry?
+            </p>
+            <p class="text-black/70 leading-relaxed">
+              That&rsquo;s okay. We&rsquo;ve all been there.
+            </p>
+          </div>
+
+          <!-- Q4 -->
+          <div class="border-t border-black/[0.08] py-6">
+            <p class="font-bold text-black text-base md:text-lg mb-2">
+              I&rsquo;ve been hurt by church before.
+            </p>
+            <p class="text-black/70 leading-relaxed">
+              We&rsquo;re sorry. We want to do better. Come see.
+            </p>
+          </div>
+
+          <!-- Q5 -->
+          <div class="border-t border-b border-black/[0.08] py-6">
+            <p class="font-bold text-black text-base md:text-lg mb-2">
+              I&rsquo;m not sure I believe in God.
+            </p>
+            <p class="text-black/70 leading-relaxed">
+              That&rsquo;s exactly why you should come. Ask your questions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 5. MEET THE PASTORS                                         -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section
+      id="pastors"
+      class="bg-cream py-20 md:py-28 px-6 md:px-16 animate-fade-up"
+    >
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-14">
+          <h2 class="font-serif italic text-3xl md:text-4xl text-black">
+            Meet the pastors
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <!-- Pastor 1: Jose Pereira -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="/photos/DSC05606.jpg"
+              alt="Apostle Jose Pereira in an intense reflective moment on stage"
+              class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border border-black/[0.08] mb-6 shrink-0"
+            />
+            <h3 class="font-serif italic text-2xl text-black mb-1">
+              Apostle Jose Pereira
+            </h3>
+            <p class="text-electric-blue text-sm font-medium mb-4">
+              Lead Pastor
+            </p>
+            <p class="text-black/70 leading-relaxed max-w-sm">
+              Jose has been part of New Hope Church from the beginning. He&rsquo;s passionate
+              about helping people take their next step with faith &mdash; wherever they
+              are on the journey.
+            </p>
+          </div>
+
+          <!-- Pastor 2: David Mokoena -->
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="/photos/DSC05588.jpg"
+              alt="Apostle on stage at New Hope Church"
+              class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border border-black/[0.08] mb-6 shrink-0"
+            />
+            <h3 class="font-serif italic text-2xl text-black mb-1">
+              Pastor David Mokoena
+            </h3>
+            <p class="text-electric-blue text-sm font-medium mb-4">
+              Campus Pastor, The Next
+            </p>
+            <p class="text-black/70 leading-relaxed max-w-sm">
+              David leads our The Next campus with warmth and authenticity. He
+              creates space for real questions and honest conversations about faith.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 6. CTA — Final section                                      -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section
+      id="cta"
+      class="bg-[#1a1a1a] text-center py-24 md:py-36 px-6 animate-fade-up"
+    >
+      <div class="max-w-2xl mx-auto">
+        <h2 class="font-serif italic text-4xl md:text-6xl text-white leading-tight">
+          We&rsquo;d love to meet you.
+        </h2>
+        <p class="text-[#e6dec8] text-lg md:text-xl mt-4 leading-relaxed">
+          Come this Sunday. We&rsquo;ll be looking for you.
+        </p>
+        <a
+          href="/visit"
+          class="inline-flex items-center bg-electric-blue text-white px-8 py-3 md:px-10 md:py-4 rounded-full text-base md:text-lg font-semibold hover:bg-blue-700 transition-all duration-300 mt-10 btn-press"
+        >
+          Plan Your Visit
+        </a>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</BranchLayout>
