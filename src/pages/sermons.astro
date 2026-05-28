@@ -1,36 +1,35 @@
 ---
 // sermons.astro
-// ─────────────────────────────────────────────────────────────
-// Sermons / Messages page for New Hope Church — The Next campus.
+// Sermons page for New Hope Church. Real content pulled from the church
+// YouTube channel at build time via src/lib/sermons.ts.
 //
-// Shows recent sermon series and individual messages.
-// Clean, browseable, focused on the content.
-//
-// Sections (in order):
-//   1. Hero (compact, cream background)
-//   2. Current Series (dark background, featured card)
-//   3. Series Archive (grid of past series cards)
-//   4. Watch on YouTube (embed placeholder + subscribe CTA)
-//   5. Contact for Series Notes / Transcripts
-//
-// Uses BranchLayout with locationName="The Next".
-// ─────────────────────────────────────────────────────────────
+// Sections: Hero, optional Current-Series highlight, Featured latest sermon
+// (embedded) OR fallback CTA, Recent grid (9), Subscribe CTA, Notes/contact.
 import BranchLayout from "../layouts/BranchLayout.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import {
+  getSermons,
+  formatSermonDate,
+  currentSeries,
+  CHANNEL_URL,
+} from "../lib/sermons";
+
+const sermons = await getSermons();
+const hasFeed = sermons.length > 0;
+const featured = hasFeed ? sermons[0] : null;
+const recent = sermons.slice(1, 10);
 ---
 
 <BranchLayout
   locationName="The Next"
-  description="Watch sermons from New Hope Church — The Next campus. Browse series, catch up on messages, and subscribe on YouTube."
+  description="Watch sermons from New Hope Church — The Next campus. Browse recent messages and subscribe on YouTube."
   canonical="/sermons"
 >
   <main>
     <Nav />
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- 1. HERO                                                    -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 1. HERO -->
     <section
       id="hero"
       class="bg-cream min-h-[40vh] flex flex-col items-center justify-center text-center px-6 py-20 md:py-28 animate-fade-up"
@@ -42,239 +41,141 @@ import Footer from "../components/Footer.astro";
         Recent messages
       </h1>
       <p class="text-black/70 mt-4 max-w-lg text-base md:text-lg leading-relaxed">
-        Watch past services, browse series, or catch up on what we've been teaching.
+        Watch past services, catch up on what we've been teaching, or subscribe to follow along.
       </p>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- 2. CURRENT SERIES                                          -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <section id="current-series" class="bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-16 animate-fade-up">
-      <div class="max-w-4xl mx-auto">
-        <div class="bg-[#232323] border border-white/[0.08] rounded-2xl p-8 md:p-12 transition-all duration-300">
-          <!-- Label -->
-          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-cream/50 mb-4">
-            Current Series
-          </p>
-
-          <!-- Series title -->
-          <h2 class="font-serif italic text-3xl md:text-5xl text-white leading-tight mb-4">
-            Faith in the In-Between
-          </h2>
-
-          <!-- Description -->
-          <p class="text-cream/70 leading-relaxed mb-6 max-w-2xl">
-            What do you do when the answer hasn't come yet? This series walks through the lives of people in Scripture who had to trust God in the tension between promise and fulfillment. A four-part series on waiting well.
-          </p>
-
-          <!-- Progress indicator -->
-          <div class="flex items-center gap-3 mb-8">
-            <span class="font-mono text-[10px] text-cream/50 uppercase tracking-[0.18em]">
-              Message 3 of 4
-            </span>
-            <div class="flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-electric-blue"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-electric-blue"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-electric-blue"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-white/20"></span>
-            </div>
+    <!-- 2. CURRENT SERIES (optional, hidden when currentSeries is null) -->
+    {currentSeries && (
+      <section id="current-series" class="bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-[#232323] border border-white/[0.08] rounded-2xl p-8 md:p-12">
+            <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-cream/50 mb-4">
+              Current Series
+            </p>
+            <h2 class="font-serif italic text-3xl md:text-5xl text-white leading-tight mb-4">
+              {currentSeries.title}
+            </h2>
+            <p class="text-cream/70 leading-relaxed mb-8 max-w-2xl">
+              {currentSeries.blurb}
+            </p>
+            <a
+              href={currentSeries.ctaUrl ?? CHANNEL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center border border-white text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-white/10 transition-all duration-300 btn-press"
+            >
+              Watch Series
+            </a>
           </div>
+        </div>
+      </section>
+    )}
 
-          <!-- CTA -->
+    <!-- 3a. FEATURED LATEST SERMON (embedded) -->
+    {featured && (
+      <section id="featured" class="bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+        <div class="max-w-4xl mx-auto">
+          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-cream/50 mb-4">
+            Latest Message
+          </p>
+          <div class="aspect-video w-full rounded-2xl overflow-hidden border border-white/[0.08] mb-5">
+            <iframe
+              class="w-full h-full"
+              src={`https://www.youtube-nocookie.com/embed/${featured.id}`}
+              title={featured.title}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <h2 class="font-serif italic text-2xl md:text-3xl text-white leading-tight">
+            {featured.title}
+          </h2>
+          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-cream/50 mt-2">
+            {formatSermonDate(featured.published)}
+          </p>
+        </div>
+      </section>
+    )}
+
+    <!-- 3b. FALLBACK when the feed is unavailable -->
+    {!hasFeed && (
+      <section id="youtube-fallback" class="bg-[#1a1a1a] py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="font-serif italic text-3xl text-white mb-3">Watch on YouTube</h2>
+          <p class="text-cream/60 mb-8">New messages go up on our channel every week.</p>
+          <div
+            class="w-full aspect-video rounded-2xl border border-white/[0.08] flex flex-col items-center justify-center mb-8"
+            style="background: repeating-linear-gradient(135deg, #232323 0 8px, #2b2b2b 8px 16px)"
+          >
+            <svg class="w-16 h-16 text-white/30 mb-3" viewBox="0 0 68 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="67" height="47" rx="8" stroke="currentColor" stroke-opacity="0.3" />
+              <path d="M28 16v16l14-8L28 16z" fill="currentColor" fill-opacity="0.3" />
+            </svg>
+            <span class="text-white/30 font-mono text-[10px] uppercase tracking-[0.18em]">
+              Watch our latest service on YouTube
+            </span>
+          </div>
           <a
-            href="https://youtube.com/@newhopechurchsa8573"
+            href={CHANNEL_URL}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center border border-white text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-white/10 transition-all duration-300 btn-press"
           >
-            Watch Latest
+            Go to YouTube
           </a>
         </div>
-      </div>
-    </section>
+      </section>
+    )}
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- 3. SERIES ARCHIVE                                          -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <section id="series-archive" class="bg-cream py-20 md:py-28 px-6 md:px-16 animate-fade-up">
-      <div class="max-w-6xl mx-auto">
-        <!-- Section title -->
-        <h2 class="font-serif italic text-2xl md:text-3xl text-black mb-10">
-          Browse by Series
-        </h2>
-
-        <!-- Grid: 1 col mobile, 2 cols tablet, 3 cols desktop -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-
-          <!-- Card 1 -->
-          <div class="bg-white border border-black/[0.06] rounded-xl overflow-hidden group transition-all duration-300">
-            <div
-              class="aspect-[16/9] flex items-center justify-center"
-              style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
-            >
-              <span class="text-black/30 font-mono text-[10px] uppercase tracking-[0.18em]">Series Art</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-serif italic text-xl text-black mb-1">
-                First Steps
-              </h3>
-              <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-black/40 mb-2">
-                Jan – Feb 2026 &middot; 4 messages
-              </p>
-              <p class="text-black/60 text-sm leading-relaxed">
-                What does it look like to follow Jesus from day one?
-              </p>
-            </div>
+    <!-- 4. RECENT GRID -->
+    {recent.length > 0 && (
+      <section id="recent" class="bg-cream py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="font-serif italic text-2xl md:text-3xl text-black mb-10">
+            More recent messages
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {recent.map((s) => (
+              <a
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-white border border-black/[0.06] rounded-xl overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div class="aspect-[16/9] overflow-hidden bg-black/5">
+                  <img
+                    src={s.thumbnail}
+                    alt={s.title}
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div class="p-5">
+                  <h3 class="font-serif italic text-xl text-black mb-1 leading-snug">
+                    {s.title}
+                  </h3>
+                  <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-black/40">
+                    {formatSermonDate(s.published)}
+                  </p>
+                </div>
+              </a>
+            ))}
           </div>
-
-          <!-- Card 2 -->
-          <div class="bg-white border border-black/[0.06] rounded-xl overflow-hidden group transition-all duration-300">
-            <div
-              class="aspect-[16/9] flex items-center justify-center"
-              style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
-            >
-              <span class="text-black/30 font-mono text-[10px] uppercase tracking-[0.18em]">Series Art</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-serif italic text-xl text-black mb-1">
-                The Lord's Prayer
-              </h3>
-              <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-black/40 mb-2">
-                Nov – Dec 2025 &middot; 5 messages
-              </p>
-              <p class="text-black/60 text-sm leading-relaxed">
-                A line-by-line look at the prayer Jesus taught us.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="bg-white border border-black/[0.06] rounded-xl overflow-hidden group transition-all duration-300">
-            <div
-              class="aspect-[16/9] flex items-center justify-center"
-              style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
-            >
-              <span class="text-black/30 font-mono text-[10px] uppercase tracking-[0.18em]">Series Art</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-serif italic text-xl text-black mb-1">
-                Unshakeable
-              </h3>
-              <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-black/40 mb-2">
-                Sep – Oct 2025 &middot; 6 messages
-              </p>
-              <p class="text-black/60 text-sm leading-relaxed">
-                Building your life on the things that last forever.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="bg-white border border-black/[0.06] rounded-xl overflow-hidden group transition-all duration-300">
-            <div
-              class="aspect-[16/9] flex items-center justify-center"
-              style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
-            >
-              <span class="text-black/30 font-mono text-[10px] uppercase tracking-[0.18em]">Series Art</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-serif italic text-xl text-black mb-1">
-                Letters to the Church
-              </h3>
-              <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-black/40 mb-2">
-                Jul – Aug 2025 &middot; 8 messages
-              </p>
-              <p class="text-black/60 text-sm leading-relaxed">
-                What the New Testament letters say to us today.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="bg-white border border-black/[0.06] rounded-xl overflow-hidden group transition-all duration-300">
-            <div
-              class="aspect-[16/9] flex items-center justify-center"
-              style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
-            >
-              <span class="text-black/30 font-mono text-[10px] uppercase tracking-[0.18em]">Series Art</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-serif italic text-xl text-black mb-1">
-                Easter 2025
-              </h3>
-              <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-black/40 mb-2">
-                Apr 2025 &middot; 3 messages
-              </p>
-              <p class="text-black/60 text-sm leading-relaxed">
-                The death, resurrection, and hope of Jesus Christ.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="bg-white border border-black/[0.06] rounded-xl overflow-hidden group transition-all duration-300">
-            <div
-              class="aspect-[16/9] flex items-center justify-center"
-              style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
-            >
-              <span class="text-black/30 font-mono text-[10px] uppercase tracking-[0.18em]">Series Art</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-serif italic text-xl text-black mb-1">
-                New Year, New You?
-              </h3>
-              <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-black/40 mb-2">
-                Jan 2025 &middot; 4 messages
-              </p>
-              <p class="text-black/60 text-sm leading-relaxed">
-                Why real change starts with God, not willpower.
-              </p>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </section>
+      </section>
+    )}
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- 4. WATCH ON YOUTUBE                                        -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <section id="youtube" class="bg-cream-surface py-20 md:py-28 px-6 md:px-16 animate-fade-up">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="font-serif italic text-3xl text-black mb-3">
-          Watch on YouTube
-        </h2>
+    <!-- 5. SUBSCRIBE CTA -->
+    <section id="subscribe" class="bg-cream-surface py-20 md:py-28 px-6 md:px-16 animate-fade-up">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-serif italic text-3xl text-black mb-3">Never miss a message</h2>
         <p class="text-black/60 mb-8">
-          New messages go up every Monday.
+          New sermons go up on YouTube every week. Subscribe to follow along.
         </p>
-
-        <!-- Embed placeholder: 16:9 aspect ratio -->
-        <div
-          class="w-full aspect-video rounded-2xl border border-black/[0.06] flex flex-col items-center justify-center mb-8 transition-all duration-300"
-          style="background: repeating-linear-gradient(135deg, #ddd6c2 0 8px, #e9e2cf 8px 16px)"
-        >
-          <!-- YouTube play button icon (SVG) -->
-          <svg
-            class="w-16 h-16 text-black/30 mb-3"
-            viewBox="0 0 68 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect x="0.5" y="0.5" width="67" height="47" rx="8" stroke="currentColor" stroke-opacity="0.3" />
-            <path
-              d="M28 16v16l14-8L28 16z"
-              fill="currentColor"
-              fill-opacity="0.3"
-            />
-          </svg>
-          <span class="text-black/30 font-mono text-[10px] uppercase tracking-[0.18em]">
-            Latest service — watch on YouTube
-          </span>
-        </div>
-
-        <!-- Subscribe CTA -->
         <a
-          href="https://youtube.com/@newhopechurchsa8573"
+          href={CHANNEL_URL}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center border border-black text-black px-6 py-3 rounded-full text-sm font-semibold hover:bg-black/5 transition-all duration-300 btn-press"
@@ -284,10 +185,8 @@ import Footer from "../components/Footer.astro";
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- 5. CONTACT FOR SERIES NOTES / TRANSCRIPTS                   -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <section id="contact-notes" class="bg-cream py-20 md:px-28 px-6 md:px-16 animate-fade-up">
+    <!-- 6. NOTES / TRANSCRIPTS CONTACT -->
+    <section id="contact-notes" class="bg-cream py-20 md:py-28 px-6 md:px-16 animate-fade-up">
       <div class="max-w-2xl mx-auto text-center">
         <p class="font-serif italic text-2xl md:text-3xl text-black mb-4">
           Missed a message? Want the notes?
