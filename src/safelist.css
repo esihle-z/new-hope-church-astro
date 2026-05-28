@@ -1,0 +1,346 @@
+/*
+ * Tailwind CSS safelist
+ *
+ * This file exists so Tailwind v4's JIT engine can detect all the
+ * utility classes used throughout the site, since the scanner doesn't
+ * natively support .astro template syntax.
+ *
+ * DO NOT REMOVE — every class listed here is actively used in components.
+ */
+
+/* Backgrounds */
+.bg-cream,
+.bg-black,
+.bg-white,
+.bg-electric-blue,
+.bg-\[\#F4EFE5\],
+.bg-\[\#efe8d7\],
+.bg-\[\#1a1a1a\],
+.bg-\[\#232323\],
+.bg-\[\#111111\],
+
+/* Text colors */
+.text-cream,
+.text-black,
+.text-white,
+.text-electric-blue,
+.text-\[\#e6dec8\],
+.text-\[\#111111\],
+.text-\[\#085CFC\],
+
+/* Font families */
+.font-serif,
+.font-sans,
+.font-mono,
+
+/* Font weights */
+.font-medium,
+.font-semibold,
+.font-bold,
+
+/* Tracking */
+.tracking-wide,
+.tracking-wider,
+
+/* Borders & rounded */
+.rounded-full,
+.rounded-2xl,
+.rounded-xl,
+.rounded-lg,
+.border,
+.border-2,
+.border-white,
+.border-black,
+.border-electric-blue,
+
+/* Flex & grid */
+.flex,
+.inline-flex,
+.flex-col,
+.flex-row,
+.flex-wrap,
+.flex-1,
+.items-start,
+.items-center,
+.items-end,
+.justify-center,
+.justify-between,
+.justify-end,
+.gap-1,
+.gap-1\.5,
+.gap-2,
+.gap-3,
+.gap-4,
+.gap-5,
+.gap-6,
+.gap-8,
+.gap-10,
+.gap-12,
+.gap-16,
+.grid,
+.grid-cols-1,
+.grid-cols-2,
+.grid-cols-3,
+.grid-cols-4,
+
+/* Spacing */
+.p-4,
+.p-5,
+.p-6,
+.p-8,
+.px-4,
+.px-5,
+.px-6,
+.px-8,
+.py-2,
+.py-3,
+.py-5,
+.py-20,
+.py-24,
+.py-28,
+.pt-20,
+.pb-10,
+.pb-20,
+.pr-8,
+.pl-6,
+
+/* Margins */
+.mx-auto,
+.mb-1,
+.mb-2,
+.mb-3,
+.mb-4,
+.mb-5,
+.mb-6,
+.mb-8,
+.mb-10,
+.mb-12,
+.mb-14,
+.mt-1,
+.mt-3,
+.mt-4,
+.mt-8,
+.mt-10,
+.mt-12,
+.mt-14,
+.mr-2,
+
+/* Sizing */
+.w-full,
+.w-8,
+.w-16,
+.w-40,
+.h-3,
+.h-8,
+.h-14,
+.h-16,
+.h-40,
+.min-h-\[100dvh\],
+.min-h-\[40vh\],
+.min-h-\[50vh\],
+.min-h-\[100px\],
+.min-h-\[200px\],
+.max-w-lg,
+.max-w-md,
+.max-w-xl,
+.max-w-2xl,
+.max-w-3xl,
+.max-w-4xl,
+.max-w-5xl,
+.max-w-6xl,
+.max-w-\[240px\],
+.max-w-\[420px\],
+
+/* Aspect ratios */
+.aspect-square,
+.aspect-video,
+.aspect-\[4\/3\],
+.aspect-\[3\/4\],
+.aspect-\[16\/9\],
+
+/* Positions */
+.relative,
+.absolute,
+.fixed,
+.inset-0,
+.top-4,
+.right-4,
+.left-0,
+.right-0,
+.z-10,
+.z-50,
+.shrink-0,
+
+/* Overflow & display */
+.overflow-hidden,
+.hidden,
+.inline,
+.inline-block,
+.block,
+
+/* Text */
+.text-center,
+.text-left,
+.text-right,
+.text-xs,
+.text-sm,
+.text-base,
+.text-lg,
+.text-xl,
+.text-2xl,
+.text-3xl,
+.text-4xl,
+.text-5xl,
+.text-6xl,
+.text-7xl,
+.text-\[10px\],
+.text-\[11px\],
+.leading-snug,
+.leading-relaxed,
+.leading-tight,
+.antialiased,
+.underline,
+.uppercase,
+.italic,
+.truncate,
+.list-none,
+.select-none,
+
+/* Shadows */
+.shadow-\[0_2px_16px_rgba\(0\,0\,0\,0\.04\)\],
+.shadow-\[0_2px_16px_rgba\(0\,0\,0\,0\.06\)\],
+
+/* Opacity & visibility */
+.opacity-70,
+
+/* Transforms */
+.scale-95,
+
+/* Transitions */
+.transition-all,
+.transition-opacity,
+.transition-transform,
+.transition-colors,
+.duration-200,
+.duration-300,
+
+/* Grid spans */
+.col-span-2,
+.row-span-2,
+
+/* Responsive */
+.sm\:inline,
+.sm\:block,
+.sm\:hidden,
+.sm\:grid-cols-2,
+.md\:inline,
+.md\:flex,
+.md\:grid-cols-2,
+.md\:grid-cols-3,
+.md\:grid-cols-4,
+.md\:flex-row,
+.md\:gap-12,
+.md\:gap-16,
+.md\:p-8,
+.md\:p-12,
+.md\:px-6,
+.md\:px-12,
+.md\:px-16,
+.md\:py-28,
+.md\:py-36,
+.md\:pt-28,
+.md\:pb-28,
+.md\:h-16,
+.md\:h-20,
+.md\:min-h-\[190px\],
+.md\:min-h-\[400px\],
+.md\:text-\[11px\],
+.md\:text-lg,
+.md\:text-xl,
+.md\:text-2xl,
+.md\:text-3xl,
+.md\:text-4xl,
+.md\:text-5xl,
+.md\:text-6xl,
+.md\:text-7xl,
+.md\:top-6,
+.md\:gap-4,
+.md\:gap-6,
+.md\:gap-8,
+.md\:mb-0,
+.lg\:text-\[4\.5rem\],
+.lg\:grid-cols-3,
+.lg\:text-6xl,
+
+/* Pseudo-class utilities */
+.hover\:bg-white,
+.hover\:bg-black,
+.hover\:bg-blue-700,
+.hover\:bg-white\/10,
+.hover\:bg-black\/5,
+.hover\:text-white,
+.hover\:text-black,
+.hover\:underline,
+.hover\:opacity-70,
+.hover\:translate-x-0\.5,
+.hover\:-translate-y-\[1px\],
+.hover\:scale-105,
+.group:hover .group-hover\:translate-x-0\.5,
+.group:hover .group-hover\:-translate-y-\[1px\],
+.group:hover .group-hover\:scale-105,
+.active\:scale-95,
+
+/* Group utilities */
+.group,
+.group\/item,
+
+/* Details/summary */
+.group-open\:rotate-45,
+
+/* Focus */
+.focus\:outline-none,
+
+/* Backdrop */
+.backdrop-blur-xl,
+.backdrop-blur-md,
+
+/* Pointer events */
+.pointer-events-none,
+
+/* Placeholder styling */
+.placeholder\:text-white\/50,
+
+/* Object fit */
+.object-cover,
+
+/* Space between */
+.space-y-0,
+.space-y-1,
+.space-y-1\.5,
+.space-y-3,
+.space-y-4,
+.space-y-5,
+.space-y-6,
+.space-y-8,
+
+/* Borders per side */
+.border-t,
+.border-b,
+.border-l,
+.border-r,
+.border-white\/10,
+.border-white\/\[0\.06\],
+.border-white\/\[0\.08\],
+.border-black\/\[0\.06\],
+.border-black\/\[0\.08\],
+.border-black\/10,
+.border-electric-blue,
+
+/* Hover border */
+.hover\:border-white\/30,
+
+/* Cursor */
+.cursor-pointer
+{
+  /* safelisted — no-op */
+}
